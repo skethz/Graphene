@@ -1,0 +1,16 @@
+__pycache__/
+*.py[cod]
+.DS_Store
+.venv/
+*.pth
+*.pt
+*.lmdb/
+datasets/
+data/
+trainsets/
+testsets/
+outputs/
+runs/
+audit*/
+release_work/
+*.log

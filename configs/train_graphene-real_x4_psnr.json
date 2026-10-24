@@ -1,0 +1,87 @@
+{
+  "name": "graphene-real_x4_psnr",
+  "model": {
+    "img_size": 64,
+    "in_chans": 3,
+    "embed_dim": 180,
+    "depths": [
+      6,
+      6,
+      6,
+      6,
+      6,
+      6
+    ],
+    "num_heads": [
+      6,
+      6,
+      6,
+      6,
+      6,
+      6
+    ],
+    "window_size": 32,
+    "mlp_ratio": 2.0,
+    "convffn_kernel_size": 5,
+    "upscale": 4,
+    "img_range": 1.0,
+    "upsampler": "nearest+conv",
+    "resi_connection": "1conv",
+    "ising_cfg": {
+      "enable": true,
+      "K": 3,
+      "beta": 1.0,
+      "learn_beta": false,
+      "gamma": 1.0,
+      "learn_gamma": false,
+      "signed": true,
+      "symmetric": true,
+      "topk": 0,
+      "gate_scale": 1.0,
+      "refine_ratio": 1.0
+    },
+    "historyattention_cfg": {
+      "enable": true,
+      "init_scale": 0.0,
+      "recent_bias": 6.0
+    }
+  },
+  "inference": {
+    "precision": "bf16",
+    "padding": "reflect",
+    "compile": false,
+    "tf32": false,
+    "cudnn_tf32": true,
+    "cudnn_benchmark": false
+  },
+  "training": {
+    "stage": "psnr",
+    "dataset": "DF2K+OST",
+    "degradation": "bsrgan",
+    "hr_patch_size": 256,
+    "lr_patch_size": 64,
+    "global_batch_size": 32,
+    "total_steps": 1000000,
+    "precision": "fp32",
+    "optimizer": "adam",
+    "learning_rate": 0.0002,
+    "adam_betas": [
+      0.9,
+      0.999
+    ],
+    "weight_decay": 0,
+    "milestones": [
+      500000,
+      800000,
+      900000,
+      950000,
+      1000000
+    ],
+    "gamma": 0.5,
+    "pixel_loss": "l1",
+    "pixel_weight": 1.0,
+    "ema_decay": 0.999,
+    "seed": 0,
+    "save_every": 5000
+  }
+}

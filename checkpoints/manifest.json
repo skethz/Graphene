@@ -1,0 +1,55 @@
+{
+  "repository": "skethz/Graphene",
+  "release": "reference-checkpoints",
+  "checkpoints": [
+    {
+      "file": "graphene-light_x2.pth",
+      "bytes": 5994059,
+      "sha256": "504796559a63880bd410fc38da23edd8d3295ddaa127aada17c77cca3babd40a",
+      "state": "EMA",
+      "config": "configs/graphene-light_x2.json"
+    },
+    {
+      "file": "graphene-light_x3.pth",
+      "bytes": 6026507,
+      "sha256": "5e7b2c36f05aa9abb761f2c82c609ef77ab0f72fddc0dfe67e14fc009087933b",
+      "state": "EMA",
+      "config": "configs/graphene-light_x3.json"
+    },
+    {
+      "file": "graphene-light_x4.pth",
+      "bytes": 6072011,
+      "sha256": "1785a0fe77376b7699593deef0ab8a0fa02961a86ed57dd6c987836f3546ee44",
+      "state": "EMA",
+      "config": "configs/graphene-light_x4.json"
+    },
+    {
+      "file": "graphene-real_x4.pth",
+      "bytes": 127458957,
+      "sha256": "7cf50961207d5a4f9b3d0ec022b9fe521c8f28d7a5013a74ed8acde882b6193e",
+      "state": "EMA",
+      "config": "configs/graphene-real_x4.json"
+    },
+    {
+      "file": "graphene_x2.pth",
+      "bytes": 127608185,
+      "sha256": "74c689a22af6863d14f783c75f8ac6a99601452832c836ea0bc29210ab36bba8",
+      "state": "EMA",
+      "config": "configs/graphene_x2.json"
+    },
+    {
+      "file": "graphene_x3.pth",
+      "bytes": 128346745,
+      "sha256": "dc148b96cec7e59e64f771126fd2bb0f4426b0931991a937c01798d55bccb258",
+      "state": "EMA",
+      "config": "configs/graphene_x3.json"
+    },
+    {
+      "file": "graphene_x4.pth",
+      "bytes": 128199607,
+      "sha256": "ecd4d928d429c33a641cc833710c2379e7ffb75b0026eec9a971704e4345796e",
+      "state": "EMA",
+      "config": "configs/graphene_x4.json"
+    }
+  ]
+}

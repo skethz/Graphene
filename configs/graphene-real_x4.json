@@ -1,0 +1,57 @@
+{
+  "name": "graphene-real_x4",
+  "model": {
+    "img_size": 64,
+    "in_chans": 3,
+    "embed_dim": 180,
+    "depths": [
+      6,
+      6,
+      6,
+      6,
+      6,
+      6
+    ],
+    "num_heads": [
+      6,
+      6,
+      6,
+      6,
+      6,
+      6
+    ],
+    "window_size": 32,
+    "mlp_ratio": 2.0,
+    "convffn_kernel_size": 5,
+    "upscale": 4,
+    "img_range": 1.0,
+    "upsampler": "nearest+conv",
+    "resi_connection": "1conv",
+    "ising_cfg": {
+      "enable": true,
+      "K": 3,
+      "beta": 1.0,
+      "learn_beta": false,
+      "gamma": 1.0,
+      "learn_gamma": false,
+      "signed": true,
+      "symmetric": true,
+      "topk": 0,
+      "gate_scale": 1.0,
+      "refine_ratio": 1.0
+    },
+    "historyattention_cfg": {
+      "enable": true,
+      "init_scale": 0.0,
+      "recent_bias": 6.0
+    }
+  },
+  "inference": {
+    "precision": "bf16",
+    "padding": "reflect",
+    "compile": false,
+    "tf32": false,
+    "cudnn_tf32": true,
+    "cudnn_benchmark": false
+  }
+}
