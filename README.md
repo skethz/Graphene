@@ -9,10 +9,10 @@ ETH AI Center, ETH Zurich
 [![Pretrained Models](https://img.shields.io/badge/Pretrained_Models-7_checkpoints-215CAF)](https://github.com/skethz/Graphene/releases/tag/reference-checkpoints)
 [![Results](https://img.shields.io/badge/Results-Benchmarks-215CAF)](#results)
 
-> **Abstract:** Graphene combines an Ising Refinement Block (IRB) for local feature refinement with History Attention (HistAttn) for stage-history feature refinement. IRB reuses attention outputs and pre-softmax logits to construct signed token couplings, applies finite mean-field updates, and gates a residual feature correction. HistAttn selects among the current and earlier representations at each token position. On Urban100 at ×4, Graphene and Graphene-light improve over IET and IET-light by **0.24 dB** and **0.38 dB**, respectively, with **34.3%/13.7% fewer parameters, 44.8%/44.4% fewer FLOPs, 87.9%/84.5% lower latency, and 86.2%/90.0% lower peak memory**. Real-world SR comparisons further illustrate detail and texture recovery.
+> **Abstract:** Graphene combines an Ising Refinement Block (IRB) for local feature refinement with History Attention (HistAttn) for stage-history feature refinement. IRB reuses attention outputs and pre-softmax logits to construct signed token couplings, applies finite mean-field updates, and gates a residual feature correction. HistAttn selects among the current and earlier representations at each token position. On Urban100 at ×4, Graphene and Graphene-light improve over IET and IET-light by **0.24 dB** and **0.38 dB**, respectively, with **34.3%/13.7% fewer parameters, 44.8%/44.4% fewer FLOPs, 78.4%/71.5% lower FP32 eager latency, and 83.9%/87.9% lower peak memory**. Real-world SR comparisons further illustrate detail and texture recovery.
 
 <p align="center">
-  <img src="assets/efficiency.png" width="1000" alt="Graphene-classical and Graphene-lightweight reconstruction quality versus FLOPs and latency">
+  <img src="assets/efficiency.png" width="1000" alt="Graphene reconstruction quality versus FLOPs and FP32 eager latency">
 </p>
 
 ## 📑 Contents
@@ -173,12 +173,18 @@ Manuscript PSNR/SSIM results:
 
 ## <a name="efficiency-profiling"></a> ⏱️ Efficiency Profiling
 
-Manuscript ×4 measurements use RGB LR inputs of shape 1×3×64×64 and two FLOPs per MAC:
+The main benchmark comparison uses **FP32 eager inference for every method**, RGB LR inputs of shape 1×3×64×64, and two FLOPs per MAC. The original baseline measurements are retained; Graphene and Graphene-light are measured in FP32 using the unchanged reference checkpoints.
 
-| Model | Parameters | FLOPs | Latency | Peak allocated memory |
-| --- | --- | --- | --- | --- |
-| Graphene | 13.0M | 137.0G | 27.7 ms | 238.2 MiB |
-| Graphene-light | 691.6K | 7.0G | 11.2 ms | 58.1 MiB |
+| Model | Scale | Parameters | FLOPs | FP32 eager latency | FP32 peak allocated memory |
+| --- | --- | --- | --- | --- | --- |
+| Graphene | ×2 | 12.9M | 132.0G | 49.0 ms | 276.9 MiB |
+| Graphene | ×3 | 13.0M | 133.5G | 44.7 ms | 276.9 MiB |
+| Graphene | ×4 | 13.0M | 137.0G | 49.6 ms | 278.1 MiB |
+| Graphene-light | ×2 | 672.1K | 6.8G | 21.1 ms | 69.3 MiB |
+| Graphene-light | ×3 | 680.3K | 6.9G | 21.7 ms | 69.6 MiB |
+| Graphene-light | ×4 | 691.6K | 7.0G | 20.7 ms | 69.9 MiB |
+
+Relative reductions use the unrounded Graphene measurements. BF16 compiled results are reported separately in the paper's appendix; the ×4 reference points are 27.7 ms / 238.2 MiB for Graphene and 11.2 ms / 58.1 MiB for Graphene-light.
 
 ```bash
 CUDA_VISIBLE_DEVICES=0 python -m tools.profile \
@@ -187,10 +193,14 @@ CUDA_VISIBLE_DEVICES=0 python -m tools.profile \
 
 CUDA_VISIBLE_DEVICES=0 python -m tools.profile \
   --config configs/graphene-classical_x4.json --checkpoint checkpoints/graphene-classical_x4.pth \
-  --output outputs/graphene-classical_x4_runtime.json
+  --precision fp32 --cpu-threads 72 --output outputs/graphene-classical_x4_fp32.json
+
+CUDA_VISIBLE_DEVICES=0 python -m tools.profile \
+  --config configs/graphene-classical_x4.json --checkpoint checkpoints/graphene-classical_x4.pth \
+  --precision bf16 --compile --cpu-threads 72 --output outputs/graphene-classical_x4_bf16.json
 ```
 
-The runtime command launches three fresh processes, each with 50 warm-up and 200 timed passes, and reports the median of their mean latencies and peak allocations. It uses BF16 autocast, FP32 input/output layers, static-shape `torch.compile`, and disabled TF32. The reported reference hardware is a GH200; latency and memory depend on the GPU, software environment, and concurrent workload. See [profiling details](docs/reproduction.md#efficiency).
+Each runtime command launches three fresh processes, each with 50 warm-up and 200 timed passes, and reports the median of their mean latencies and peak allocations. TF32 is disabled. FP32 eager is the default; the BF16 command uses autocast, FP32 input/output layers, and static-shape `torch.compile`. The reference hardware is a GH200 with Python 3.12.3, PyTorch 2.9.1, CUDA 13.0, and cuDNN 9.23; latency and memory depend on the GPU, software environment, and concurrent workload. See [profiling details](docs/reproduction.md#efficiency).
 
 ## <a name="model-overview"></a> Model Overview
 

@@ -1,4 +1,4 @@
-"""Graphene operation counts and fresh-process BF16 compiled runtime profiling."""
+"""Graphene operation counts and fresh-process FP32 or BF16 runtime profiling."""
 
 import argparse
 import json
@@ -41,9 +41,11 @@ def operation_counts(model, x):
 def worker(args):
     config = read_config(args.config)
     torch.set_num_threads(args.cpu_threads)
+    torch.manual_seed(2447)
     torch.backends.cuda.matmul.allow_tf32 = False
     torch.backends.cudnn.allow_tf32 = False
     torch.backends.cudnn.benchmark = True
+    torch.set_float32_matmul_precision("highest")
     model = build_model(config, args.checkpoint).cuda().eval()
     prepare_masks(model, 64, 64)
     x = torch.randn(1, 3, 64, 64, device="cuda", dtype=torch.float32)
@@ -52,8 +54,9 @@ def worker(args):
             result = operation_counts(model, x)
     else:
         model.fp32_io = True
-        model = torch.compile(model, backend="inductor", mode="default", dynamic=False)
-        with torch.inference_mode(), torch.autocast("cuda", dtype=torch.bfloat16):
+        if args.compile:
+            model = torch.compile(model, backend="inductor", mode="default", dynamic=False)
+        with torch.inference_mode(), torch.autocast("cuda", dtype=torch.bfloat16, enabled=args.precision == "bf16"):
             for _ in range(args.warmup):
                 y = model(x)
             torch.cuda.synchronize()
@@ -71,7 +74,8 @@ def worker(args):
             peak = torch.cuda.max_memory_allocated()
             result = dict(latency_ms=statistics.mean(elapsed), peak_memory_mib=peak / 2**20,
                           output_finite=bool(torch.isfinite(y).all()))
-    result.update(model=config["name"], torch=torch.__version__, cuda=torch.version.cuda,
+    result.update(model=config["name"], precision=args.precision, compiled=args.compile,
+                  python=sys.version.split()[0], torch=torch.__version__, cuda=torch.version.cuda,
                   cudnn=torch.backends.cudnn.version(), gpu=torch.cuda.get_device_name(),
                   input_shape=list(x.shape))
     Path(args.output).write_text(json.dumps(result, indent=2) + "\n")
@@ -84,6 +88,8 @@ def main():
     parser.add_argument("--checkpoint", required=True)
     parser.add_argument("--output", required=True)
     parser.add_argument("--counts-only", action="store_true")
+    parser.add_argument("--precision", choices=("fp32", "bf16"), default="fp32")
+    parser.add_argument("--compile", action="store_true")
     parser.add_argument("--runs", type=int, default=3)
     parser.add_argument("--warmup", type=int, default=50)
     parser.add_argument("--iterations", type=int, default=200)
@@ -100,13 +106,18 @@ def main():
         reports = []
         for index in range(args.runs):
             output = Path(directory) / f"run_{index}.json"
-            subprocess.run([sys.executable, "-m", "tools.profile", "--worker", "--config", args.config,
+            command = [sys.executable, "-m", "tools.profile", "--worker", "--config", args.config,
                             "--checkpoint", args.checkpoint, "--output", str(output), "--warmup", str(args.warmup),
-                            "--iterations", str(args.iterations), "--cpu-threads", str(args.cpu_threads)], check=True)
+                            "--iterations", str(args.iterations), "--cpu-threads", str(args.cpu_threads),
+                            "--precision", args.precision]
+            if args.compile:
+                command.append("--compile")
+            subprocess.run(command, check=True)
             reports.append(json.loads(output.read_text()))
         summary = dict(latency_ms=statistics.median(r["latency_ms"] for r in reports),
                        peak_memory_mib=statistics.median(r["peak_memory_mib"] for r in reports),
-                       runs=reports, warmup=args.warmup, iterations=args.iterations)
+                       runs=reports, warmup=args.warmup, iterations=args.iterations,
+                       precision=args.precision, compiled=args.compile)
         Path(args.output).write_text(json.dumps(summary, indent=2) + "\n")
         print(json.dumps({k: v for k, v in summary.items() if k != "runs"}), flush=True)
 
