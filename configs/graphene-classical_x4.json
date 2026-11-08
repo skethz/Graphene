@@ -1,10 +1,12 @@
 {
-  "name": "graphene-light_x2",
+  "name": "graphene-classical_x4",
   "model": {
     "img_size": 64,
     "in_chans": 3,
-    "embed_dim": 60,
+    "embed_dim": 180,
     "depths": [
+      6,
+      6,
       6,
       6,
       6,
@@ -14,14 +16,16 @@
       6,
       6,
       6,
+      6,
+      6,
       6
     ],
-    "window_size": 16,
-    "mlp_ratio": 1.0,
+    "window_size": 32,
+    "mlp_ratio": 2.0,
     "convffn_kernel_size": 5,
-    "upscale": 2,
+    "upscale": 4,
     "img_range": 1.0,
-    "upsampler": "pixelshuffledirect",
+    "upsampler": "pixelshuffle",
     "resi_connection": "1conv",
     "ising_cfg": {
       "enable": true,
@@ -34,49 +38,13 @@
       "symmetric": true,
       "topk": 0,
       "gate_scale": 1.0,
-      "refine_ratio": 1.0,
-      "residual_scale": 0.0,
-      "learn_residual_scale": true
+      "refine_ratio": 1.0
     },
     "historyattention_cfg": {
       "enable": true,
       "init_scale": 0.0,
       "recent_bias": 6.0
-    },
-    "ising_schedule": [
-      [
-        false,
-        false,
-        false,
-        false,
-        false,
-        true
-      ],
-      [
-        false,
-        false,
-        false,
-        false,
-        false,
-        true
-      ],
-      [
-        false,
-        false,
-        false,
-        false,
-        false,
-        true
-      ],
-      [
-        false,
-        false,
-        false,
-        false,
-        false,
-        true
-      ]
-    ]
+    }
   },
   "inference": {
     "precision": "fp32",

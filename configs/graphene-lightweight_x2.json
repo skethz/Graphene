@@ -1,0 +1,114 @@
+{
+  "name": "graphene-lightweight_x2",
+  "model": {
+    "img_size": 64,
+    "in_chans": 3,
+    "embed_dim": 60,
+    "depths": [
+      6,
+      6,
+      6,
+      6
+    ],
+    "num_heads": [
+      6,
+      6,
+      6,
+      6
+    ],
+    "window_size": 16,
+    "mlp_ratio": 1.0,
+    "convffn_kernel_size": 5,
+    "upscale": 2,
+    "img_range": 1.0,
+    "upsampler": "pixelshuffledirect",
+    "resi_connection": "1conv",
+    "ising_cfg": {
+      "enable": true,
+      "K": 3,
+      "beta": 1.0,
+      "learn_beta": false,
+      "gamma": 1.0,
+      "learn_gamma": false,
+      "signed": true,
+      "symmetric": true,
+      "topk": 0,
+      "gate_scale": 1.0,
+      "refine_ratio": 1.0,
+      "residual_scale": 0.0,
+      "learn_residual_scale": true
+    },
+    "historyattention_cfg": {
+      "enable": true,
+      "init_scale": 0.0,
+      "recent_bias": 6.0
+    },
+    "ising_schedule": [
+      [
+        false,
+        false,
+        false,
+        false,
+        false,
+        true
+      ],
+      [
+        false,
+        false,
+        false,
+        false,
+        false,
+        true
+      ],
+      [
+        false,
+        false,
+        false,
+        false,
+        false,
+        true
+      ],
+      [
+        false,
+        false,
+        false,
+        false,
+        false,
+        true
+      ]
+    ]
+  },
+  "inference": {
+    "precision": "fp32",
+    "padding": "flip",
+    "compile": false,
+    "tf32": false
+  },
+  "training": {
+    "dataset": "DF2K",
+    "lr_patch_size": 128,
+    "global_batch_size": 32,
+    "total_steps": 500000,
+    "loss": "l1",
+    "precision": "bf16",
+    "learning_rate": 0.0002,
+    "milestones": [
+      250000,
+      400000,
+      450000,
+      475000
+    ],
+    "gamma": 0.5,
+    "adam_betas": [
+      0.9,
+      0.999
+    ],
+    "weight_decay": 0.0,
+    "muon_momentum": 0.95,
+    "muon_nesterov": true,
+    "muon_ns_steps": 5,
+    "ema_decay": 0.999,
+    "seed": 0,
+    "save_every": 10000
+  }
+}

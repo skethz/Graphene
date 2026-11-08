@@ -215,7 +215,7 @@ class IsingRefinementBlock(nn.Module):
         gate0 = float(self.cfg.get("gate_scale", 1.0))
         refine_ratio = float(self.cfg.get("refine_ratio", 1.0))
 
-        # Graphene-light learns a per-IRB residual scalar initialized to zero.
+        # Graphene-lightweight learns a per-IRB residual scalar initialized to zero.
         # The full model applies the gated residual without this extra scalar.
         self.residual_scale = None
         if "residual_scale" in self.cfg or bool(

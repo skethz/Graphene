@@ -1,6 +1,6 @@
 # Training recipe
 
-The six classical and lightweight configurations implement the main manuscript's 500,000-step DF2K schedule. The dataset is supplied by the user; no training or testing images are included in this repository.
+The six `graphene-classical` and `graphene-lightweight` configurations implement the main manuscript's 500,000-step DF2K schedule. The dataset is supplied by the user; no training or testing images are included in this repository.
 
 The crop size is explicitly an **LR** size. A 128×128 LR patch is paired with a scale-times-larger HR crop. Random crops, horizontal flips, and quarter-turn rotations are shared between the pair. Flips combined with the four rotations cover the eight square symmetries.
 
@@ -20,7 +20,7 @@ The tests check the recipe, global-batch accounting, paired crops, optimizer all
 
 ## Real-world SR
 
-The official [SwinIR repository](https://github.com/JingyunLiang/SwinIR#training) links to KAIR for training. The real-SR configurations adapt KAIR's [PSNR stage](https://github.com/cszn/KAIR/blob/fc1732f4a4514e42ce15e5b3a1e18c828af47a1e/options/swinir/train_swinir_sr_realworld_x4_psnr.json) and [GAN stage](https://github.com/cszn/KAIR/blob/fc1732f4a4514e42ce15e5b3a1e18c828af47a1e/options/swinir/train_swinir_sr_realworld_x4_gan.json). Both retain the Graphene architecture and its nearest-neighbor/convolution ×4 reconstruction head.
+The official [SwinIR repository](https://github.com/JingyunLiang/SwinIR#training) links to KAIR for training. The `graphene-realworld` configurations adapt KAIR's [PSNR stage](https://github.com/cszn/KAIR/blob/fc1732f4a4514e42ce15e5b3a1e18c828af47a1e/options/swinir/train_swinir_sr_realworld_x4_psnr.json) and [GAN stage](https://github.com/cszn/KAIR/blob/fc1732f4a4514e42ce15e5b3a1e18c828af47a1e/options/swinir/train_swinir_sr_realworld_x4_gan.json). Both retain the Graphene-realworld architecture and its nearest-neighbor/convolution ×4 reconstruction head.
 
 | Setting | PSNR pretraining | GAN fine-tuning |
 | --- | --- | --- |

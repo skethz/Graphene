@@ -1,4 +1,4 @@
-"""Full-image classical, lightweight, and real-world Graphene inference."""
+"""Full-image inference for graphene-classical, graphene-lightweight, and graphene-realworld."""
 
 import argparse
 import json

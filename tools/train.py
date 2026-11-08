@@ -1,4 +1,4 @@
-"""DF2K training for the classical and lightweight Graphene models."""
+"""DF2K training for graphene-classical and graphene-lightweight."""
 
 import argparse
 import copy

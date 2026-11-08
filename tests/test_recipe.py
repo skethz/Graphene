@@ -42,7 +42,7 @@ class RecipeTests(unittest.TestCase):
             torch.testing.assert_close(y, x.repeat_interleave(2, -1).repeat_interleave(2, -2), rtol=0, atol=0)
 
     def test_optimizer_partition_schedule_and_strict_loading(self):
-        config = read_config(ROOT / "configs/graphene-light_x2.json")
+        config = read_config(ROOT / "configs/graphene-lightweight_x2.json")
         model = build_model(config)
         muon, adam = optimizer_partition(model)
         self.assertTrue(any(name.endswith("ising.to_h.weight") for name, _ in muon))

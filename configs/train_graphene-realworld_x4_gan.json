@@ -1,5 +1,5 @@
 {
-  "name": "graphene-real_x4_psnr",
+  "name": "graphene-realworld_x4_gan",
   "model": {
     "img_size": 64,
     "in_chans": 3,
@@ -55,33 +55,51 @@
     "cudnn_benchmark": false
   },
   "training": {
-    "stage": "psnr",
+    "stage": "gan",
     "dataset": "DF2K+OST",
     "degradation": "bsrgan",
     "hr_patch_size": 256,
     "lr_patch_size": 64,
     "global_batch_size": 32,
-    "total_steps": 1000000,
+    "total_steps": 600000,
     "precision": "fp32",
     "optimizer": "adam",
-    "learning_rate": 0.0002,
+    "learning_rate": 0.0001,
     "adam_betas": [
       0.9,
       0.999
     ],
     "weight_decay": 0,
     "milestones": [
+      400000,
       500000,
-      800000,
-      900000,
-      950000,
-      1000000
+      550000,
+      575000,
+      600000
     ],
     "gamma": 0.5,
     "pixel_loss": "l1",
     "pixel_weight": 1.0,
     "ema_decay": 0.999,
     "seed": 0,
-    "save_every": 5000
+    "save_every": 5000,
+    "perceptual_weight": 1.0,
+    "feature_layers": [
+      2,
+      7,
+      16,
+      25,
+      34
+    ],
+    "feature_weights": [
+      0.1,
+      0.1,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "adversarial_weight": 0.1,
+    "discriminator_features": 64,
+    "discriminator_init_gain": 0.2
   }
 }

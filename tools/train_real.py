@@ -1,4 +1,4 @@
-"""SwinIR-style BSRGAN pretraining and GAN fine-tuning for Graphene real SR."""
+"""SwinIR-style BSRGAN pretraining and GAN fine-tuning for graphene-realworld."""
 
 import argparse
 import copy

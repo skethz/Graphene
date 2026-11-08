@@ -17,8 +17,8 @@ ROOT = Path(__file__).resolve().parents[1]
 
 class RealRecipeTests(unittest.TestCase):
     def test_swinir_stage_settings(self):
-        psnr = read_config(ROOT / "configs/train_graphene-real_x4_psnr.json")["training"]
-        gan = read_config(ROOT / "configs/train_graphene-real_x4_gan.json")["training"]
+        psnr = read_config(ROOT / "configs/train_graphene-realworld_x4_psnr.json")["training"]
+        gan = read_config(ROOT / "configs/train_graphene-realworld_x4_gan.json")["training"]
         for settings in (psnr, gan):
             self.assertEqual((settings["degradation"], settings["lr_patch_size"], settings["hr_patch_size"], settings["global_batch_size"]), ("bsrgan", 64, 256, 32))
             self.assertEqual(settings["adam_betas"], [0.9, 0.999])
@@ -40,7 +40,7 @@ class RealRecipeTests(unittest.TestCase):
 
     def test_degradation_and_dataset(self):
         image = np.random.default_rng(3).integers(0, 256, (260, 260, 3), dtype=np.uint8)
-        settings = read_config(ROOT / "configs/train_graphene-real_x4_psnr.json")["training"]
+        settings = read_config(ROOT / "configs/train_graphene-realworld_x4_psnr.json")["training"]
         for seed in range(8):
             random.seed(seed)
             np.random.seed(seed)
@@ -62,7 +62,7 @@ class RealRecipeTests(unittest.TestCase):
         discriminator = nn.Conv2d(3, 1, 1)
         optimizers = [torch.optim.Adam(module.parameters(), lr=1e-4) for module in (generator, discriminator)]
         before = [next(module.parameters()).detach().clone() for module in (generator, discriminator)]
-        settings = read_config(ROOT / "configs/train_graphene-real_x4_gan.json")["training"]
+        settings = read_config(ROOT / "configs/train_graphene-realworld_x4_gan.json")["training"]
         batches = [(torch.rand(1, 3, 8, 8), torch.rand(1, 3, 8, 8)) for _ in range(2)]
         losses = optimizer_step(generator, discriminator, nn.L1Loss(), batches, optimizers, settings)
         self.assertTrue(all(np.isfinite(value) for value in losses.values()))
