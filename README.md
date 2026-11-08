@@ -28,12 +28,12 @@ ETH AI Center, ETH Zurich
 
 ## <a name="installation"></a> ⚙️ Installation
 
-Python 3.11 and CUDA-enabled PyTorch 2.9.1 are the reference environment. BF16 training and compiled profiling require a compatible NVIDIA GPU. CPU inference is available with `--device cpu --precision fp32`.
+Python 3.12 and CUDA-enabled PyTorch 2.9.1 are the reference environment. BF16 training and compiled profiling require a compatible NVIDIA GPU. CPU inference is available with `--device cpu --precision fp32`.
 
 ```bash
 git clone https://github.com/skethz/Graphene.git
 cd Graphene
-conda create -n graphene python=3.11 -y
+conda create -n graphene python=3.12 -y
 conda activate graphene
 pip install -r requirements.txt
 ```
@@ -51,7 +51,7 @@ gh release download reference-checkpoints --repo skethz/Graphene \
 python -m tools.check_checkpoints
 ```
 
-Authenticated repository access is required while the repository is private. The [checkpoint manifest](checkpoints/manifest.json) records byte sizes and SHA-256 hashes.
+The reference checkpoints are publicly available in the release linked above. The [checkpoint manifest](checkpoints/manifest.json) records byte sizes and SHA-256 hashes.
 
 | Task | Scale | Configuration | Checkpoint |
 | --- | --- | --- | --- |
