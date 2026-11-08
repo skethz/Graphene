@@ -164,12 +164,12 @@ Manuscript PSNR/SSIM results:
 
 | Model | Scale | Set5 | Set14 | BSD100 | Urban100 | Manga109 |
 | --- | --- | --- | --- | --- | --- | --- |
-| Graphene-classical | ×2 | 38.81 / 0.9637 | 35.33 / 0.9300 | 32.92 / 0.9082 | 35.25 / 0.9512 | 40.85 / 0.9820 |
-| Graphene-classical | ×3 | 35.24 / 0.9337 | 31.38 / 0.8580 | 29.69 / 0.8195 | 31.06 / 0.8984 | 35.91 / 0.9569 |
-| Graphene-classical | ×4 | 33.27 / 0.9070 | 29.43 / 0.8001 | 28.12 / 0.7542 | 28.67 / 0.8483 | 32.89 / 0.9316 |
-| Graphene-lightweight | ×2 | 38.34 / 0.9617 | 34.59 / 0.9253 | 32.58 / 0.9042 | 33.91 / 0.9424 | 39.90 / 0.9796 |
-| Graphene-lightweight | ×3 | 34.87 / 0.9305 | 31.00 / 0.8511 | 29.49 / 0.8140 | 29.98 / 0.8809 | 35.01 / 0.9520 |
-| Graphene-lightweight | ×4 | 32.80 / 0.9007 | 29.19 / 0.7922 | 27.94 / 0.7468 | 27.79 / 0.8243 | 31.93 / 0.9225 |
+| Graphene | ×2 | 38.81 / 0.9637 | 35.33 / 0.9300 | 32.92 / 0.9082 | 35.25 / 0.9512 | 40.85 / 0.9820 |
+| Graphene | ×3 | 35.24 / 0.9337 | 31.38 / 0.8580 | 29.69 / 0.8195 | 31.06 / 0.8984 | 35.91 / 0.9569 |
+| Graphene | ×4 | 33.27 / 0.9070 | 29.43 / 0.8001 | 28.12 / 0.7542 | 28.67 / 0.8483 | 32.89 / 0.9316 |
+| Graphene-light | ×2 | 38.34 / 0.9617 | 34.59 / 0.9253 | 32.58 / 0.9042 | 33.91 / 0.9424 | 39.90 / 0.9796 |
+| Graphene-light | ×3 | 34.87 / 0.9305 | 31.00 / 0.8511 | 29.49 / 0.8140 | 29.98 / 0.8809 | 35.01 / 0.9520 |
+| Graphene-light | ×4 | 32.80 / 0.9007 | 29.19 / 0.7922 | 27.94 / 0.7468 | 27.79 / 0.8243 | 31.93 / 0.9225 |
 
 ## <a name="efficiency-profiling"></a> ⏱️ Efficiency Profiling
 
@@ -177,8 +177,8 @@ Manuscript ×4 measurements use RGB LR inputs of shape 1×3×64×64 and two FLOP
 
 | Model | Parameters | FLOPs | Latency | Peak allocated memory |
 | --- | --- | --- | --- | --- |
-| Graphene-classical | 13.0M | 137.0G | 27.7 ms | 238.2 MiB |
-| Graphene-lightweight | 691.6K | 7.0G | 11.2 ms | 58.1 MiB |
+| Graphene | 13.0M | 137.0G | 27.7 ms | 238.2 MiB |
+| Graphene-light | 691.6K | 7.0G | 11.2 ms | 58.1 MiB |
 
 ```bash
 CUDA_VISIBLE_DEVICES=0 python -m tools.profile \
@@ -198,7 +198,7 @@ The runtime command launches three fresh processes, each with 50 warm-up and 200
   <img src="assets/architecture.png" width="1000" alt="Graphene architecture with local Ising refinement and stage History Attention">
 </p>
 
-| Component | Graphene-classical | Graphene-lightweight |
+| Component | Graphene | Graphene-light |
 | --- | --- | --- |
 | Stages × blocks | 6×6 | 4×6 |
 | Feature channels | 180 | 60 |
