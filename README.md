@@ -225,10 +225,13 @@ Both variants use signed, symmetric IRB couplings and stage-history attention. T
 ## <a name="citation"></a> Citation
 
 ```bibtex
-@unpublished{hong2026graphene,
+@misc{hong2026graphene,
   title={Graphene: A Lightweight Transformer with Ising Mean-Field Refinement for Image Super-Resolution},
   author={Hong, Seungki and Jang, Taekwang},
   year={2026},
-  note={Manuscript}
+  eprint={2611.11139},
+  archivePrefix={arXiv},
+  primaryClass={cs.CV},
+  url={https://arxiv.org/abs/2611.11139}
 }
 ```
