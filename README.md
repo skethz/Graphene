@@ -5,6 +5,7 @@ Official PyTorch implementation of **Graphene**, with classical, lightweight, an
 By **Seungki Hong** and **Taekwang Jang**<br>
 ETH AI Center, ETH Zurich
 
+[![arXiv](https://img.shields.io/badge/arXiv-2611.11139-215CAF?logo=arxiv)](https://arxiv.org/abs/2611.11139)
 [![Code](https://img.shields.io/badge/Code-GitHub-215CAF?logo=github)](https://github.com/skethz/Graphene)
 [![Pretrained Models](https://img.shields.io/badge/Pretrained_Models-7_checkpoints-215CAF)](https://github.com/skethz/Graphene/releases/tag/reference-checkpoints)
 [![Results](https://img.shields.io/badge/Results-Benchmarks-215CAF)](#results)
