@@ -13,8 +13,10 @@ ETH AI Center, ETH Zurich
 > **Abstract:** This paper proposes *Graphene*, a lightweight image super-resolution architecture with two complementary feature refinement mechanisms: Ising-model-inspired local feature refinement using an *Ising Refinement Block (IRB)* and stage-history-based feature refinement using a *History Attention (HistAttn)* module. The IRB reuses attention output features and pre-softmax attention logits to construct signed pairwise token couplings within each local window, applies unrolled mean-field updates, and refines features through a gated residual correction. These signed couplings allow alignment and opposition between latent spins to modulate local feature refinement. HistAttn attends over the current stage output and earlier representations at the same token position and adaptively blends the current stage output with a history-weighted feature aggregate without adding spatial pairwise attention. On Urban100 at ×4, Graphene and Graphene-light improve over IET and IET-light by **0.24 dB** and **0.38 dB**, respectively, with **34.3%/13.7% fewer parameters, 44.8%/44.4% fewer FLOPs, 78.4%/71.5% lower latency, and 83.9%/87.9% lower peak memory**. Real-world SR comparisons further show that Graphene recovers fine details and preserves textures across diverse degradations. Code and reference checkpoints are available at [github.com/skethz/Graphene](https://github.com/skethz/Graphene).
 
 <p align="center">
-  <img src="assets/efficiency.png" width="1000" alt="Graphene reconstruction quality versus FLOPs and FP32 eager latency">
+  <img src="assets/efficiency.png" width="1000" alt="Graphene reconstruction quality versus FLOPs and BF16 compiled latency">
 </p>
+
+Urban100 ×4 PSNR versus FLOPs (left; circle diameter: parameters) and latency (right, log scale; circle area: peak memory). All methods run BF16 compiled inference (BF16 autocast, `torch.compile` max-autotune, TF32 off) on a GH200 GPU with 64×64 LR inputs. †: one part of the official code cannot run this setting, so only that part is changed and the best value is reported (CAT-A: `view` after `torch.roll`; IPG: first-forward caches; PFT, IET: sparse-attention CUDA operators, in FP32 and FP16).
 
 ## 📑 Contents
 
