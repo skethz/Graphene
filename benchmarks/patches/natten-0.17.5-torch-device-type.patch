@@ -1,0 +1,52 @@
+diff --git a/src/natten/autotuner/misc.py b/src/natten/autotuner/misc.py
+index 3a94205..be906ed 100644
+--- a/src/natten/autotuner/misc.py
++++ b/src/natten/autotuner/misc.py
+@@ -24,7 +24,7 @@
+ from typing import Optional
+ 
+ import torch
+-from torch.cuda import _device_t
++from torch.types import Device as _device_t
+ 
+ from ..types import DimensionType
+ 
+diff --git a/src/natten/context.py b/src/natten/context.py
+index 2cfe8ff..c3f8623 100644
+--- a/src/natten/context.py
++++ b/src/natten/context.py
+@@ -24,7 +24,7 @@ from enum import Enum
+ from typing import Any, Dict, Optional
+ 
+ import torch
+-from torch.cuda import _device_t
++from torch.types import Device as _device_t
+ 
+ from .utils import log
+ from .utils.misc import get_device_cc
+diff --git a/src/natten/utils/misc.py b/src/natten/utils/misc.py
+index c5579b3..b95f976 100644
+--- a/src/natten/utils/misc.py
++++ b/src/natten/utils/misc.py
+@@ -24,7 +24,7 @@
+ from typing import Optional
+ 
+ import torch
+-from torch.cuda import _device_t
++from torch.types import Device as _device_t
+ 
+ 
+ def get_device_cc(device_index: Optional[_device_t] = None) -> int:
+diff --git a/src/natten/utils/testing.py b/src/natten/utils/testing.py
+index 58018c7..d37041a 100644
+--- a/src/natten/utils/testing.py
++++ b/src/natten/utils/testing.py
+@@ -25,7 +25,7 @@ import sys
+ from typing import Optional
+ 
+ import torch
+-from torch.cuda import _device_t
++from torch.types import Device as _device_t
+ 
+ from .. import has_cuda, has_fna, has_fp64_gemm, has_gemm
+ from .misc import get_device_cc

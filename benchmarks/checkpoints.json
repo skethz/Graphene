@@ -1,0 +1,332 @@
+{
+  "_comment": "Official checkpoints: place each file at <checkpoints>/<file>. methods.py verifies sha256 before loading. Methods listed under random_init have no public checkpoint at the pinned commit and are built with torch.manual_seed(2447).",
+  "random_init": [
+    "SwinIR-light",
+    "SRFormer-light",
+    "ATD-light",
+    "MambaIR-light",
+    "MambaIRv2-light"
+  ],
+  "checkpoints": {
+    "SwinIR": {
+      "2": {
+        "file": "SwinIR/001_classicalSR_DF2K_s64w8_SwinIR-M_x2.pth",
+        "sha256": "2032ebf8f401dd3ce2fae5f3852117cb72101ec6ed8358faa64c2a3fa09ed4ac",
+        "bytes": 67277475,
+        "source": "https://github.com/JingyunLiang/SwinIR/releases/download/v0.0/001_classicalSR_DF2K_s64w8_SwinIR-M_x2.pth"
+      },
+      "3": {
+        "file": "SwinIR/001_classicalSR_DF2K_s64w8_SwinIR-M_x3.pth",
+        "sha256": "6eca3aee41f53322cd2f5a13650e212b80be8f3c0439d6fe19aef13ab1f509c7",
+        "bytes": 68016035,
+        "source": "https://github.com/JingyunLiang/SwinIR/releases/download/v0.0/001_classicalSR_DF2K_s64w8_SwinIR-M_x3.pth"
+      },
+      "4": {
+        "file": "SwinIR/001_classicalSR_DF2K_s64w8_SwinIR-M_x4.pth",
+        "sha256": "4e78e33f22c1aa8a773db0cf4a7381bae97c2362c717f155439ebc690cbd9215",
+        "bytes": 67869037,
+        "source": "https://github.com/JingyunLiang/SwinIR/releases/download/v0.0/001_classicalSR_DF2K_s64w8_SwinIR-M_x4.pth"
+      }
+    },
+    "CAT-A": {
+      "2": {
+        "file": "CAT-A/SR_CAT_A_x2.pth",
+        "sha256": "d68dce4af7e77946736a61f1615bdb33fd0d846d37fb108585e6f6d4baa950b8",
+        "bytes": 179660037,
+        "source": "CAT README, Testing > Image SR: https://drive.google.com/drive/folders/1Pd4tuE3f84aY5bcjR8KA5FshAT3-MXLB"
+      },
+      "3": {
+        "file": "CAT-A/SR_CAT_A_x3.pth",
+        "sha256": "740f520c2c69da0a80469cdd3a6a005866a93d768905227b8fc3356fd08e1a8d",
+        "bytes": 180398597,
+        "source": "CAT README, Testing > Image SR: https://drive.google.com/drive/folders/1Pd4tuE3f84aY5bcjR8KA5FshAT3-MXLB"
+      },
+      "4": {
+        "file": "CAT-A/SR_CAT_A_x4.pth",
+        "sha256": "91746971e1a66d14e8c824563a4c84f7436b299217077f88e9aafd2071717fe3",
+        "bytes": 180251607,
+        "source": "CAT README, Testing > Image SR: https://drive.google.com/drive/folders/1Pd4tuE3f84aY5bcjR8KA5FshAT3-MXLB"
+      }
+    },
+    "ART": {
+      "2": {
+        "file": "ART/SR_ART_x2.pth",
+        "sha256": "e97ed2307e9c4118ecd0326f61b0d5ceef4368e6508171b3fd2e7b56fff5cb95",
+        "bytes": 65973249,
+        "source": "ART README, Models (image SR): https://drive.google.com/drive/folders/1Sre6vmY0aujYxvF7s7LVZtTg1Lp2AT9v"
+      },
+      "3": {
+        "file": "ART/SR_ART_x3.pth",
+        "sha256": "789c4b5f0e0d8a2705bcc6867e4235034e422e173ae424420105ce0b6ad34dca",
+        "bytes": 66690429,
+        "source": "ART README, Models (image SR): https://drive.google.com/drive/folders/1Sre6vmY0aujYxvF7s7LVZtTg1Lp2AT9v"
+      },
+      "4": {
+        "file": "ART/SR_ART_x4.pth",
+        "sha256": "269a073bcedb2d516b24ab5eb0fb03f8ff01403892051d3f861a48d9af1792ed",
+        "bytes": 66543353,
+        "source": "ART README, Models (image SR): https://drive.google.com/drive/folders/1Sre6vmY0aujYxvF7s7LVZtTg1Lp2AT9v"
+      }
+    },
+    "HAT": {
+      "2": {
+        "file": "HAT/HAT_SRx2.pth",
+        "sha256": "35e9409849016ab2bfc0c549639ea4f1d4d5b2bdd75f856a925e124dd05670d0",
+        "bytes": 84546053,
+        "source": "HAT README: https://drive.google.com/drive/folders/1HpmReFfoUqUbnAOQ7rvOeNU3uf_m69w0"
+      },
+      "3": {
+        "file": "HAT/HAT_SRx3.pth",
+        "sha256": "453c90b94d494d041c8bff2d222987af311f07b4a09b4dafbd9ab6492f15206c",
+        "bytes": 85284613,
+        "source": "HAT README: https://drive.google.com/drive/folders/1HpmReFfoUqUbnAOQ7rvOeNU3uf_m69w0"
+      },
+      "4": {
+        "file": "HAT/HAT_SRx4.pth",
+        "sha256": "02dabea478aa5902a7170ad89350124e691bd89c91356f24b3267022622dc030",
+        "bytes": 85137601,
+        "source": "HAT README: https://drive.google.com/drive/folders/1HpmReFfoUqUbnAOQ7rvOeNU3uf_m69w0"
+      }
+    },
+    "SRFormer": {
+      "2": {
+        "file": "SRFormer/SRFormer_SRx2_DF2K.pth",
+        "sha256": "0ea56b74ed8c1b456757b7cdf3d33996f516b5ed9e28a15451d230a4e25f8cd6",
+        "bytes": 96609323,
+        "source": "SRFormer README, Pretrain Models: https://drive.google.com/drive/folders/1D5ER_HwYJoyZCcrKVstwE-iEl0hXulwd"
+      },
+      "3": {
+        "file": "SRFormer/SRFormer_SRx3_DF2K.pth",
+        "sha256": "249a9e44080d1cce8be0826dbab058a61db89fbeb5e21600c2ffee119d145b3f",
+        "bytes": 97347883,
+        "source": "SRFormer README, Pretrain Models: https://drive.google.com/drive/folders/1D5ER_HwYJoyZCcrKVstwE-iEl0hXulwd"
+      },
+      "4": {
+        "file": "SRFormer/SRFormer_SRx4_DF2K.pth",
+        "sha256": "aa7883cbbd4493530eeb0e101c9be00d5d8112b392fec1eed61b60176737be6a",
+        "bytes": 97200893,
+        "source": "SRFormer README, Pretrain Models: https://drive.google.com/drive/folders/1D5ER_HwYJoyZCcrKVstwE-iEl0hXulwd"
+      }
+    },
+    "IPG": {
+      "2": {
+        "file": "IPG/IPG_SRx2.pth",
+        "sha256": "95c38ddd533182ffd5f0e9640fd28ec49221a6867e639c32c87c6aba56640965",
+        "bytes": 149032465,
+        "source": "https://huggingface.co/yuchuantian/IPG/resolve/main/IPG_SRx2.pth"
+      },
+      "3": {
+        "file": "IPG/IPG_SRx3.pth",
+        "sha256": "b92fa49fe7f0a979689dc5becddf6697bb05de479eef21abba7bd9803a930af1",
+        "bytes": 149771025,
+        "source": "https://huggingface.co/yuchuantian/IPG/resolve/main/IPG_SRx3.pth"
+      },
+      "4": {
+        "file": "IPG/IPG_SRx4.pth",
+        "sha256": "daf43d79d0a2b415e383bc3beac979a0741ffbc5f573a73fd525b308d8e92cb0",
+        "bytes": 144236483,
+        "source": "https://huggingface.co/yuchuantian/IPG/resolve/main/IPG_SRx4.pth"
+      }
+    },
+    "ATD": {
+      "2": {
+        "file": "ATD/001_ATD_SRx2_finetune.pth",
+        "sha256": "ea1fd5aecd38eff1a95e03b44f28cc1ba63967a61c97c62230214abc0f18a094",
+        "bytes": 176546904,
+        "source": "ATD README, Pretrained Models: https://drive.google.com/drive/folders/1nz0I798GM8HkPYVZCLe8i9LAK31mpYQs"
+      },
+      "3": {
+        "file": "ATD/002_ATD_SRx3_finetune.pth",
+        "sha256": "ef8eb0aa699cc86dc315cbbb7d23052e8146a9db7784bc0e5d24508d743ee3b9",
+        "bytes": 178025990,
+        "source": "ATD README, Pretrained Models: https://drive.google.com/drive/folders/1nz0I798GM8HkPYVZCLe8i9LAK31mpYQs"
+      },
+      "4": {
+        "file": "ATD/003_ATD_SRx4_finetune.pth",
+        "sha256": "b2b6794ed562f4fcac83bcd2a1423878ff6a23520a01fb29ba914324dacb37f4",
+        "bytes": 177731926,
+        "source": "ATD README, Pretrained Models: https://drive.google.com/drive/folders/1nz0I798GM8HkPYVZCLe8i9LAK31mpYQs"
+      }
+    },
+    "MambaIR": {
+      "2": {
+        "file": "MambaIR/mambairv1_classicSR_Base_x2.pth",
+        "sha256": "981e6d42eb890d42b8c2ff3e11a69e07721895b32fa3810cf8f6440d790b1753",
+        "bytes": 82045477,
+        "source": "MambaIR README, Model Summary (MambaIR_SR2); also https://huggingface.co/cguoh/MambaIR"
+      },
+      "3": {
+        "file": "MambaIR/mambairv1_classicSR_Base_x3.pth",
+        "sha256": "33a20f4206250b50cba0a08c06fc249311fca739610e892a383145ab2810667d",
+        "bytes": 82784037,
+        "source": "MambaIR README, Model Summary (MambaIR_SR3); also https://huggingface.co/cguoh/MambaIR"
+      },
+      "4": {
+        "file": "MambaIR/mambairv1_classicSR_Base_x4.pth",
+        "sha256": "ab54b7f545002949929ea8cbb3176ac327d572b4930d5b8346517900b4da4098",
+        "bytes": 82636971,
+        "source": "MambaIR README, Model Summary (MambaIR_SR4); also https://huggingface.co/cguoh/MambaIR"
+      }
+    },
+    "MambaIRv2": {
+      "2": {
+        "file": "MambaIRv2/mambairv2_classicSR_Base_x2.pth",
+        "sha256": "d6890aa755d54d077d5f79eb472f31101a666e7f6e9e51fbb1c8a8e798eceed5",
+        "bytes": 92812311,
+        "source": "MambaIR README, MambaIRv2 model summary (classic SR Base x2); also https://huggingface.co/cguoh/MambaIR"
+      },
+      "3": {
+        "file": "MambaIRv2/mambairv2_classicSR_Base_x3.pth",
+        "sha256": "59b4d202da8437f552eb7003c77d8540bc05070736c2f9b19ca0bfef640e0445",
+        "bytes": 93597354,
+        "source": "MambaIR README, MambaIRv2 model summary (classic SR Base x3); also https://huggingface.co/cguoh/MambaIR"
+      },
+      "4": {
+        "file": "MambaIRv2/mambairv2_classicSR_Base_x4.pth",
+        "sha256": "245a820f6a6be85338f0b47354bcbb7a2341ce4b390f58a0844bab6a4874c164",
+        "bytes": 93450320,
+        "source": "MambaIR README, MambaIRv2 model summary (classic SR Base x4); also https://huggingface.co/cguoh/MambaIR"
+      }
+    },
+    "PFT": {
+      "2": {
+        "file": "PFT/001_PFT_SRx2_scratch.pth",
+        "sha256": "aca2490b9fd54ce3949305ad4a3968d4a1dd73ee696eff06e79aeb211c0e47d7",
+        "bytes": 174218214,
+        "source": "PFT-SR README, Pretrained Models: https://drive.google.com/drive/folders/1ChkxVDghFWUtJydJKLp5yssrUfm0VWfg"
+      },
+      "3": {
+        "file": "PFT/002_PFT_SRx3_finetune.pth",
+        "sha256": "18c0c35653794bc72a15b6b8095e9a88134738005fe70e76659fdc5a418b651c",
+        "bytes": 175695334,
+        "source": "PFT-SR README, Pretrained Models: https://drive.google.com/drive/folders/1ChkxVDghFWUtJydJKLp5yssrUfm0VWfg"
+      },
+      "4": {
+        "file": "PFT/003_PFT_SRx4_finetune.pth",
+        "sha256": "0afac5ac3eaef747be4d580aecd627c3fef2f6f7c2ddc3fde90de45c379cfb2c",
+        "bytes": 175401270,
+        "source": "PFT-SR README, Pretrained Models: https://drive.google.com/drive/folders/1ChkxVDghFWUtJydJKLp5yssrUfm0VWfg"
+      }
+    },
+    "PFT-light": {
+      "2": {
+        "file": "PFT-light/101_PFT_light_SRx2_scratch.pth",
+        "sha256": "f587233ab2dd4a271d5021f646d07a6c24b3ab0edab715819fda51df883e6b85",
+        "bytes": 23331988,
+        "source": "PFT-SR README, Pretrained Models: https://drive.google.com/drive/folders/1ChkxVDghFWUtJydJKLp5yssrUfm0VWfg"
+      },
+      "3": {
+        "file": "PFT-light/102_PFT_light_SRx3_finetune.pth",
+        "sha256": "9c0f1cb02922baa7b24fb61af6e97f78a2078a003860f39463d24b70952ba25d",
+        "bytes": 23388180,
+        "source": "PFT-SR README, Pretrained Models: https://drive.google.com/drive/folders/1ChkxVDghFWUtJydJKLp5yssrUfm0VWfg"
+      },
+      "4": {
+        "file": "PFT-light/103_PFT_light_SRx4_finetune.pth",
+        "sha256": "376287f65480eb98fdc82693337947bdb74838af76fc909fdea792d36c52546e",
+        "bytes": 23467156,
+        "source": "PFT-SR README, Pretrained Models: https://drive.google.com/drive/folders/1ChkxVDghFWUtJydJKLp5yssrUfm0VWfg"
+      }
+    },
+    "IET": {
+      "2": {
+        "file": "IET/IET-SR-classical-x2.pth",
+        "sha256": "72768303c9e832148e889b93fa193765c15ffdd2368fa18e4f13b47f8b60c1ec",
+        "bytes": 157862986,
+        "source": "IET README, Pretrained Models: https://drive.google.com/drive/folders/1YzKzkGnpvbbzxarnM1fEPXu0z7ojJQrc"
+      },
+      "3": {
+        "file": "IET/IET-SR-classical-x3.pth",
+        "sha256": "8a979445bcc17beefba76e771e1c570d27ea77a65d71f865f13730cca5a5cc5f",
+        "bytes": 159341320,
+        "source": "IET README, Pretrained Models: https://drive.google.com/drive/folders/1YzKzkGnpvbbzxarnM1fEPXu0z7ojJQrc"
+      },
+      "4": {
+        "file": "IET/IET-SR-classical-x4.pth",
+        "sha256": "070f15666fcf39b23cb187972f7d0b08e11b9fa5112205c97f4f1506cefad3be",
+        "bytes": 159046034,
+        "source": "IET README, Pretrained Models: https://drive.google.com/drive/folders/1YzKzkGnpvbbzxarnM1fEPXu0z7ojJQrc"
+      }
+    },
+    "IET-light": {
+      "2": {
+        "file": "IET-light/IET-SR-light-x2.pth",
+        "sha256": "c1df877753a82d068407372837476fc4fcc0203f0c4a8ff406b5d76315122f0c",
+        "bytes": 6632782,
+        "source": "IET README, Pretrained Models: https://drive.google.com/drive/folders/1YzKzkGnpvbbzxarnM1fEPXu0z7ojJQrc"
+      },
+      "3": {
+        "file": "IET-light/IET-SR-light-x3.pth",
+        "sha256": "29141adf525c595118958db4ca45f0141f43bee2f23c92e77c3d3917d1f6c181",
+        "bytes": 6690354,
+        "source": "IET README, Pretrained Models: https://drive.google.com/drive/folders/1YzKzkGnpvbbzxarnM1fEPXu0z7ojJQrc"
+      },
+      "4": {
+        "file": "IET-light/IET-SR-light-x4.pth",
+        "sha256": "5a268a37b736398eef1ef7d34b8d62bf3435fede19274ba238136ae3b9c46ba4",
+        "bytes": 6772274,
+        "source": "IET README, Pretrained Models: https://drive.google.com/drive/folders/1YzKzkGnpvbbzxarnM1fEPXu0z7ojJQrc"
+      }
+    },
+    "UCAN": {
+      "2": {
+        "file": "UCAN/weight_final_x2.pth",
+        "sha256": "6182aee24baf93e31f102931cebe84e24f6fdfccb3578a5ed93089de1619a7fa",
+        "bytes": 6524787,
+        "source": "UCAN README, Weight column of the results table (Google Drive)"
+      },
+      "3": {
+        "file": "UCAN/weight_final_x3.pth",
+        "sha256": "16e5bbef60fc2a3422d5086fb4667730d5f3135d8af023076c75560b8393ae7e",
+        "bytes": 6497779,
+        "source": "UCAN README, Weight column of the results table (Google Drive)"
+      },
+      "4": {
+        "file": "UCAN/weight_final_x4.pth",
+        "sha256": "6fab3c1da02123fe6cd677035b55db24838202122989383ff53f3e528b69ad8c",
+        "bytes": 6570611,
+        "source": "UCAN README, Weight column of the results table (Google Drive)"
+      }
+    },
+    "Graphene": {
+      "2": {
+        "file": "Graphene/graphene-classical_x2.pth",
+        "sha256": "74c689a22af6863d14f783c75f8ac6a99601452832c836ea0bc29210ab36bba8",
+        "bytes": 127608185,
+        "source": "Graphene release, reference-checkpoints (GitHub release of the Graphene repository)"
+      },
+      "3": {
+        "file": "Graphene/graphene-classical_x3.pth",
+        "sha256": "dc148b96cec7e59e64f771126fd2bb0f4426b0931991a937c01798d55bccb258",
+        "bytes": 128346745,
+        "source": "Graphene release, reference-checkpoints (GitHub release of the Graphene repository)"
+      },
+      "4": {
+        "file": "Graphene/graphene-classical_x4.pth",
+        "sha256": "ecd4d928d429c33a641cc833710c2379e7ffb75b0026eec9a971704e4345796e",
+        "bytes": 128199607,
+        "source": "Graphene release, reference-checkpoints (GitHub release of the Graphene repository)"
+      }
+    },
+    "Graphene-light": {
+      "2": {
+        "file": "Graphene-light/graphene-lightweight_x2.pth",
+        "sha256": "504796559a63880bd410fc38da23edd8d3295ddaa127aada17c77cca3babd40a",
+        "bytes": 5994059,
+        "source": "Graphene release, reference-checkpoints (GitHub release of the Graphene repository)"
+      },
+      "3": {
+        "file": "Graphene-light/graphene-lightweight_x3.pth",
+        "sha256": "5e7b2c36f05aa9abb761f2c82c609ef77ab0f72fddc0dfe67e14fc009087933b",
+        "bytes": 6026507,
+        "source": "Graphene release, reference-checkpoints (GitHub release of the Graphene repository)"
+      },
+      "4": {
+        "file": "Graphene-light/graphene-lightweight_x4.pth",
+        "sha256": "1785a0fe77376b7699593deef0ab8a0fa02961a86ed57dd6c987836f3546ee44",
+        "bytes": 6072011,
+        "source": "Graphene release, reference-checkpoints (GitHub release of the Graphene repository)"
+      }
+    }
+  }
+}

@@ -1,0 +1,76 @@
+{
+  "_comment": "Official repositories, cloned by setup_third_party.sh into <third_party>/<dir> and checked out at the pinned commit. Code is imported from these clones; nothing is vendored.",
+  "repos": {
+    "SwinIR": {
+      "url": "https://github.com/JingyunLiang/SwinIR",
+      "commit": "6545850fbf8df298df73d81f3e8cba638787c8bd",
+      "methods": ["SwinIR", "SwinIR-light"],
+      "note": "models/network_swinir.py is byte-identical in every commit from 9d14daa8 to 6545850f (7 commits). Network arguments follow main_test_swinir.py define_model (classical_sr / lightweight_sr, training_patch_size 64)."
+    },
+    "CAT": {
+      "url": "https://github.com/zhengchen1999/CAT",
+      "commit": "89cbfc88a337344d6dee76278c96e033ec38d5c6",
+      "methods": ["CAT-A"]
+    },
+    "ART": {
+      "url": "https://github.com/gladzhang/ART",
+      "commit": "3ee01f35294405748a06ab24cf4abc26b41e6746",
+      "methods": ["ART"]
+    },
+    "HAT": {
+      "url": "https://github.com/XPixelGroup/HAT",
+      "commit": "1638a9a822581657811867bf670717f8371fc3e5",
+      "methods": ["HAT"],
+      "note": "HAT imports the pip package basicsr (registry + arch_util.to_2tuple/trunc_normal_ only). methods.py provides these two names from timm instead of installing basicsr; they are only used at construction/initialisation and the official weights overwrite every parameter."
+    },
+    "SRFormer": {
+      "url": "https://github.com/HVision-NKU/SRFormer",
+      "commit": "d0c2da6e298a6170bd1466a05f2df305b24f4725",
+      "methods": ["SRFormer", "SRFormer-light"]
+    },
+    "Efficient-Computing": {
+      "url": "https://github.com/huawei-noah/Efficient-Computing",
+      "commit": "225ddd2e6ca41915434557f7f49d395e4f801e3e",
+      "sparse_checkout": ["LowLevel/IPG"],
+      "methods": ["IPG"],
+      "subdir": "LowLevel/IPG"
+    },
+    "ATD": {
+      "url": "https://github.com/CVL-UESTC/Adaptive-Token-Dictionary",
+      "commit": "c064084c3a33724e850ec03532fc6ddc7d7a0828",
+      "methods": ["ATD", "ATD-light"]
+    },
+    "MambaIR": {
+      "url": "https://github.com/csguoh/MambaIR",
+      "commit": "33d7b3460c4665229334cc8de38c7f4c766ed3be",
+      "methods": ["MambaIR", "MambaIRv2", "MambaIR-light", "MambaIRv2-light"]
+    },
+    "PFT-SR": {
+      "url": "https://github.com/CVL-UESTC/PFT-SR",
+      "commit": "3f832e6e150ba927a7741d893d3aa4a7114e9b01",
+      "methods": ["PFT", "PFT-light"],
+      "cuda_extension": "ops_smm (smm_cuda), built by build_smm.py"
+    },
+    "IET": {
+      "url": "https://github.com/CVL-UESTC/IET",
+      "commit": "59fd7d3eba83d1a79d68f06a99aca1b14d161f5c",
+      "methods": ["IET", "IET-light"],
+      "cuda_extension": "ops_smm (smm_cuda, different source from PFT-SR), built by build_smm.py; also needs NATTEN",
+      "note": "Upstream HEAD has moved past this commit; the pinned commit is the one the benchmark was verified on."
+    },
+    "UCAN": {
+      "url": "https://github.com/hokiyoshi/UCAN",
+      "commit": "b812c0adb8ce70d442973db5c87bab7d1e8c3333",
+      "methods": ["UCAN"]
+    },
+    "NATTEN": {
+      "url": "https://github.com/SHI-Labs/NATTEN",
+      "commit": "4831f059049d4d0c08f4cc1fd328edd69a97389e",
+      "tag": "v0.17.5",
+      "submodules": {"third_party/cutlass": "6f47420213f757831fae65c686aa471749fa8d60"},
+      "patch": "patches/natten-0.17.5-torch-device-type.patch",
+      "methods": ["IET", "IET-light"],
+      "note": "Built from source against the local torch (CUDA arch from NATTEN_CUDA_ARCH). The patch replaces `from torch.cuda import _device_t` (removed in recent torch) with `from torch.types import Device as _device_t` in four files; no kernel code is changed."
+    }
+  }
+}

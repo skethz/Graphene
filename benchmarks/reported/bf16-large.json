@@ -1,0 +1,864 @@
+{
+ "table": "bf16-large",
+ "printed_in": "Table 4",
+ "environment": {
+  "gpu": "NVIDIA GH200",
+  "python": "3.12.3",
+  "torch": "2.9.1",
+  "cuda": "13.0",
+  "cudnn": "9.23"
+ },
+ "setting": {
+  "execution": "bf16_compiled",
+  "scales": [
+   4
+  ],
+  "sizes": [
+   [
+    180,
+    320
+   ],
+   [
+    720,
+    1280
+   ]
+  ],
+  "warmup": 5,
+  "iterations": 20,
+  "repeats": 3
+ },
+ "fields": {
+  "latency_ms_median": "median over the runs of each run's mean latency (first timed pass excluded)",
+  "latency_ms_runs": "per-run mean latency",
+  "peak_memory_mib_reported": "reported peak allocated memory (see peak_memory_source)",
+  "mode_fallback": "true where no variant completes in the variant's own compilation mode"
+ },
+ "picks": {
+  "ART|x4|180x320": {
+   "method": "ART",
+   "scale": 4,
+   "height": 180,
+   "width": 320,
+   "execution": "bf16_compiled",
+   "fallback": "none",
+   "natten_mode": null,
+   "compile_mode": "max-autotune",
+   "mode_fallback": false,
+   "n": 3,
+   "latency_ms_median": 225.23495804636102,
+   "latency_ms_runs": [
+    225.23495804636102,
+    224.23028162906044,
+    225.6805813438014
+   ],
+   "peak_memory_source": "max-autotune-no-cudagraphs, 3 runs",
+   "peak_memory_mib_reported": 3245.37548828125
+  },
+  "ART|x4|720x1280": {
+   "method": "ART",
+   "scale": 4,
+   "status": "oom"
+  },
+  "ATD-light|x4|180x320": {
+   "method": "ATD-light",
+   "scale": 4,
+   "height": 180,
+   "width": 320,
+   "execution": "bf16_compiled",
+   "fallback": "none",
+   "natten_mode": null,
+   "compile_mode": "max-autotune",
+   "mode_fallback": false,
+   "n": 3,
+   "latency_ms_median": 15.23211629767167,
+   "latency_ms_runs": [
+    15.236783128035697,
+    15.23211629767167,
+    15.220232411434775
+   ],
+   "peak_memory_source": "max-autotune-no-cudagraphs, 3 runs",
+   "peak_memory_mib_reported": 246.61083984375
+  },
+  "ATD-light|x4|720x1280": {
+   "method": "ATD-light",
+   "scale": 4,
+   "height": 720,
+   "width": 1280,
+   "execution": "bf16_compiled",
+   "fallback": "none",
+   "natten_mode": null,
+   "compile_mode": "max-autotune",
+   "mode_fallback": false,
+   "n": 3,
+   "latency_ms_median": 164.74611944901315,
+   "latency_ms_runs": [
+    165.23043662623354,
+    164.74611944901315,
+    164.63196523565995
+   ],
+   "peak_memory_source": "max-autotune-no-cudagraphs, 3 runs",
+   "peak_memory_mib_reported": 3654.25439453125
+  },
+  "ATD|x4|180x320": {
+   "method": "ATD",
+   "scale": 4,
+   "height": 180,
+   "width": 320,
+   "execution": "bf16_compiled",
+   "fallback": "none",
+   "natten_mode": null,
+   "compile_mode": "max-autotune",
+   "mode_fallback": false,
+   "n": 3,
+   "latency_ms_median": 58.80643744217722,
+   "latency_ms_runs": [
+    58.955188148900085,
+    58.744786714252676,
+    58.80643744217722
+   ],
+   "peak_memory_source": "max-autotune-no-cudagraphs, 3 runs",
+   "peak_memory_mib_reported": 636.580078125
+  },
+  "ATD|x4|720x1280": {
+   "method": "ATD",
+   "scale": 4,
+   "height": 720,
+   "width": 1280,
+   "execution": "bf16_compiled",
+   "fallback": "none",
+   "natten_mode": null,
+   "compile_mode": "max-autotune",
+   "mode_fallback": false,
+   "n": 3,
+   "latency_ms_median": 732.5518509714227,
+   "latency_ms_runs": [
+    733.1445248252467,
+    732.2916645250822,
+    732.5518509714227
+   ],
+   "peak_memory_source": "max-autotune-no-cudagraphs, 3 runs",
+   "peak_memory_mib_reported": 8372.04541015625
+  },
+  "CAT-A|x4|180x320": {
+   "method": "CAT-A",
+   "scale": 4,
+   "height": 180,
+   "width": 320,
+   "execution": "bf16_compiled",
+   "fallback": "cat_reshape",
+   "natten_mode": null,
+   "compile_mode": "max-autotune",
+   "mode_fallback": false,
+   "n": 3,
+   "latency_ms_median": 86.62550233539783,
+   "latency_ms_runs": [
+    86.63219532213714,
+    86.62550233539783,
+    86.6206259476511
+   ],
+   "peak_memory_source": "max-autotune-no-cudagraphs, 3 runs",
+   "peak_memory_mib_reported": 2272.0849609375
+  },
+  "CAT-A|x4|720x1280": {
+   "method": "CAT-A",
+   "scale": 4,
+   "height": 720,
+   "width": 1280,
+   "execution": "bf16_compiled",
+   "fallback": "cat_reshape",
+   "natten_mode": null,
+   "compile_mode": "max-autotune-no-cudagraphs",
+   "mode_fallback": true,
+   "n": 3,
+   "latency_ms_median": 5267.664525082237,
+   "latency_ms_runs": [
+    5269.631861636513,
+    5264.3191560444075,
+    5267.664525082237
+   ],
+   "peak_memory_mib_median": 112133.65966796875,
+   "peak_memory_source": "timing runs",
+   "peak_memory_mib_reported": 112133.65966796875
+  },
+  "Graphene-light|x4|180x320": {
+   "method": "Graphene-light",
+   "scale": 4,
+   "height": 180,
+   "width": 320,
+   "execution": "bf16_compiled",
+   "fallback": "none",
+   "natten_mode": null,
+   "compile_mode": "max-autotune",
+   "mode_fallback": false,
+   "n": 3,
+   "latency_ms_median": 6.808021896763852,
+   "latency_ms_runs": [
+    6.808021896763852,
+    6.811232014706261,
+    6.799205052225213
+   ],
+   "peak_memory_source": "max-autotune-no-cudagraphs, 3 runs",
+   "peak_memory_mib_reported": 242.74072265625
+  },
+  "Graphene-light|x4|720x1280": {
+   "method": "Graphene-light",
+   "scale": 4,
+   "height": 720,
+   "width": 1280,
+   "execution": "bf16_compiled",
+   "fallback": "none",
+   "natten_mode": null,
+   "compile_mode": "max-autotune",
+   "mode_fallback": false,
+   "n": 3,
+   "latency_ms_median": 90.79446089895148,
+   "latency_ms_runs": [
+    90.75064127068771,
+    90.79446089895148,
+    90.85340881347656
+   ],
+   "peak_memory_source": "max-autotune-no-cudagraphs, 3 runs",
+   "peak_memory_mib_reported": 3631.501953125
+  },
+  "Graphene|x4|180x320": {
+   "method": "Graphene",
+   "scale": 4,
+   "height": 180,
+   "width": 320,
+   "execution": "bf16_compiled",
+   "fallback": "none",
+   "natten_mode": null,
+   "compile_mode": "max-autotune",
+   "mode_fallback": false,
+   "n": 3,
+   "latency_ms_median": 76.89827085796155,
+   "latency_ms_runs": [
+    76.79492348118832,
+    76.89827085796155,
+    76.89968350059108
+   ],
+   "peak_memory_source": "max-autotune-no-cudagraphs, 3 runs",
+   "peak_memory_mib_reported": 1108.66748046875
+  },
+  "Graphene|x4|720x1280": {
+   "method": "Graphene",
+   "scale": 4,
+   "height": 720,
+   "width": 1280,
+   "execution": "bf16_compiled",
+   "fallback": "none",
+   "natten_mode": null,
+   "compile_mode": "max-autotune",
+   "mode_fallback": false,
+   "n": 3,
+   "latency_ms_median": 1145.2986546566613,
+   "latency_ms_runs": [
+    1145.2986546566613,
+    1144.9099506578948,
+    1146.6920294510692
+   ],
+   "peak_memory_source": "max-autotune-no-cudagraphs, 3 runs",
+   "peak_memory_mib_reported": 15136.51513671875
+  },
+  "HAT|x4|180x320": {
+   "method": "HAT",
+   "scale": 4,
+   "height": 180,
+   "width": 320,
+   "execution": "bf16_compiled",
+   "fallback": "none",
+   "natten_mode": null,
+   "compile_mode": "max-autotune",
+   "mode_fallback": false,
+   "n": 3,
+   "latency_ms_median": 49.30623164929842,
+   "latency_ms_runs": [
+    49.30623164929842,
+    49.250586660284746,
+    49.34136561343544
+   ],
+   "peak_memory_source": "max-autotune-no-cudagraphs, 3 runs",
+   "peak_memory_mib_reported": 858.05078125
+  },
+  "HAT|x4|720x1280": {
+   "method": "HAT",
+   "scale": 4,
+   "height": 720,
+   "width": 1280,
+   "execution": "bf16_compiled",
+   "fallback": "none",
+   "natten_mode": null,
+   "compile_mode": "max-autotune",
+   "mode_fallback": false,
+   "n": 3,
+   "latency_ms_median": 675.8225964997944,
+   "latency_ms_runs": [
+    675.8225964997944,
+    675.5171059056332,
+    676.7553839432566
+   ],
+   "peak_memory_source": "max-autotune-no-cudagraphs, 3 runs",
+   "peak_memory_mib_reported": 11596.6416015625
+  },
+  "IET-light|x4|180x320": {
+   "method": "IET-light",
+   "scale": 4,
+   "height": 180,
+   "width": 320,
+   "execution": "bf16_compiled",
+   "fallback": "smm_fp16",
+   "natten_mode": "gemm_tf32_off",
+   "compile_mode": "max-autotune",
+   "mode_fallback": false,
+   "n": 3,
+   "latency_ms_median": 147.08708672774466,
+   "latency_ms_runs": [
+    147.5326056229441,
+    147.08708672774466,
+    146.92645745528372
+   ],
+   "peak_memory_source": "max-autotune-no-cudagraphs, 3 runs",
+   "peak_memory_mib_reported": 1852.08056640625
+  },
+  "IET-light|x4|720x1280": {
+   "method": "IET-light",
+   "scale": 4,
+   "height": 720,
+   "width": 1280,
+   "execution": "bf16_compiled",
+   "fallback": "smm_fp16",
+   "natten_mode": "gemm_tf32_off",
+   "compile_mode": "max-autotune",
+   "mode_fallback": false,
+   "n": 3,
+   "latency_ms_median": 2203.4324629934213,
+   "latency_ms_runs": [
+    2203.5070672286183,
+    2203.4324629934213,
+    2203.0415296052633
+   ],
+   "peak_memory_source": "max-autotune-no-cudagraphs, 3 runs",
+   "peak_memory_mib_reported": 27464.39404296875
+  },
+  "IET|x4|180x320": {
+   "method": "IET",
+   "scale": 4,
+   "height": 180,
+   "width": 320,
+   "execution": "bf16_compiled",
+   "fallback": "smm_fp32",
+   "natten_mode": "gemm_tf32_off",
+   "compile_mode": "max-autotune",
+   "mode_fallback": false,
+   "n": 3,
+   "latency_ms_median": 484.8976456491571,
+   "latency_ms_runs": [
+    485.84755345394734,
+    484.8976456491571,
+    484.80823235762745
+   ],
+   "peak_memory_source": "max-autotune-no-cudagraphs, 3 runs",
+   "peak_memory_mib_reported": 3612.3203125
+  },
+  "IET|x4|720x1280": {
+   "method": "IET",
+   "scale": 4,
+   "height": 720,
+   "width": 1280,
+   "execution": "bf16_compiled",
+   "fallback": "smm_fp16",
+   "natten_mode": "fp32",
+   "compile_mode": "max-autotune",
+   "mode_fallback": false,
+   "n": 3,
+   "latency_ms_median": 8344.432411595395,
+   "latency_ms_runs": [
+    8345.109375,
+    8342.966488486842,
+    8344.432411595395
+   ],
+   "peak_memory_source": "max-autotune-no-cudagraphs, 3 runs",
+   "peak_memory_mib_reported": 53141.314453125
+  },
+  "IPG|x4|180x320": {
+   "method": "IPG",
+   "scale": 4,
+   "height": 180,
+   "width": 320,
+   "execution": "bf16_compiled",
+   "fallback": "ipg_cache",
+   "natten_mode": null,
+   "compile_mode": "max-autotune",
+   "mode_fallback": false,
+   "n": 3,
+   "latency_ms_median": 131.80962171052633,
+   "latency_ms_runs": [
+    131.80962171052633,
+    131.7288264224404,
+    131.97473787006578
+   ],
+   "peak_memory_source": "max-autotune-no-cudagraphs, 3 runs",
+   "peak_memory_mib_reported": 3480.02880859375
+  },
+  "IPG|x4|720x1280": {
+   "method": "IPG",
+   "scale": 4,
+   "height": 720,
+   "width": 1280,
+   "execution": "bf16_compiled",
+   "fallback": "ipg_cache",
+   "natten_mode": null,
+   "compile_mode": "max-autotune",
+   "mode_fallback": false,
+   "n": 3,
+   "latency_ms_median": 1977.761564555921,
+   "latency_ms_runs": [
+    1978.8096152857731,
+    1977.4288972553454,
+    1977.761564555921
+   ],
+   "peak_memory_source": "max-autotune-no-cudagraphs, 3 runs",
+   "peak_memory_mib_reported": 51463.69287109375
+  },
+  "MambaIR-light|x4|180x320": {
+   "method": "MambaIR-light",
+   "scale": 4,
+   "height": 180,
+   "width": 320,
+   "execution": "bf16_compiled",
+   "fallback": "none",
+   "natten_mode": null,
+   "compile_mode": "max-autotune",
+   "mode_fallback": false,
+   "n": 3,
+   "latency_ms_median": 28.75075862282201,
+   "latency_ms_runs": [
+    29.373801883898285,
+    28.75075862282201,
+    28.520811482479697
+   ],
+   "peak_memory_source": "max-autotune-no-cudagraphs, 3 runs",
+   "peak_memory_mib_reported": 329.18798828125
+  },
+  "MambaIR-light|x4|720x1280": {
+   "method": "MambaIR-light",
+   "scale": 4,
+   "height": 720,
+   "width": 1280,
+   "execution": "bf16_compiled",
+   "fallback": "none",
+   "natten_mode": null,
+   "compile_mode": "max-autotune",
+   "mode_fallback": false,
+   "n": 3,
+   "latency_ms_median": 418.7433294998972,
+   "latency_ms_runs": [
+    418.7819968775699,
+    418.72064208984375,
+    418.7433294998972
+   ],
+   "peak_memory_source": "max-autotune-no-cudagraphs, 3 runs",
+   "peak_memory_mib_reported": 4874.20458984375
+  },
+  "MambaIRv2-light|x4|180x320": {
+   "method": "MambaIRv2-light",
+   "scale": 4,
+   "height": 180,
+   "width": 320,
+   "execution": "bf16_compiled",
+   "fallback": "none",
+   "natten_mode": null,
+   "compile_mode": "max-autotune",
+   "mode_fallback": false,
+   "n": 3,
+   "latency_ms_median": 22.501359036094264,
+   "latency_ms_runs": [
+    22.501359036094264,
+    22.623001199019583,
+    22.486061196578177
+   ],
+   "peak_memory_source": "max-autotune-no-cudagraphs, 3 runs",
+   "peak_memory_mib_reported": 247.61181640625
+  },
+  "MambaIRv2-light|x4|720x1280": {
+   "method": "MambaIRv2-light",
+   "scale": 4,
+   "height": 720,
+   "width": 1280,
+   "execution": "bf16_compiled",
+   "fallback": "none",
+   "natten_mode": null,
+   "compile_mode": "max-autotune",
+   "mode_fallback": false,
+   "n": 3,
+   "latency_ms_median": 292.17321456106083,
+   "latency_ms_runs": [
+    292.17321456106083,
+    292.03355006167766,
+    293.22863608912417
+   ],
+   "peak_memory_source": "max-autotune-no-cudagraphs, 3 runs",
+   "peak_memory_mib_reported": 3674.44384765625
+  },
+  "MambaIRv2|x4|180x320": {
+   "method": "MambaIRv2",
+   "scale": 4,
+   "height": 180,
+   "width": 320,
+   "execution": "bf16_compiled",
+   "fallback": "none",
+   "natten_mode": null,
+   "compile_mode": "max-autotune",
+   "mode_fallback": false,
+   "n": 3,
+   "latency_ms_median": 116.73121402138158,
+   "latency_ms_runs": [
+    116.79303861919202,
+    116.73121402138158,
+    116.68430930689762
+   ],
+   "peak_memory_source": "max-autotune-no-cudagraphs, 3 runs",
+   "peak_memory_mib_reported": 645.85888671875
+  },
+  "MambaIRv2|x4|720x1280": {
+   "method": "MambaIRv2",
+   "scale": 4,
+   "height": 720,
+   "width": 1280,
+   "execution": "bf16_compiled",
+   "fallback": "none",
+   "natten_mode": null,
+   "compile_mode": "max-autotune",
+   "mode_fallback": false,
+   "n": 3,
+   "latency_ms_median": 1534.2919986122533,
+   "latency_ms_runs": [
+    1534.2919986122533,
+    1533.1689581620067,
+    1535.2158267372533
+   ],
+   "peak_memory_source": "max-autotune-no-cudagraphs, 3 runs",
+   "peak_memory_mib_reported": 8432.7177734375
+  },
+  "MambaIR|x4|180x320": {
+   "method": "MambaIR",
+   "scale": 4,
+   "height": 180,
+   "width": 320,
+   "execution": "bf16_compiled",
+   "fallback": "none",
+   "natten_mode": null,
+   "compile_mode": "max-autotune",
+   "mode_fallback": false,
+   "n": 3,
+   "latency_ms_median": 192.7184504458779,
+   "latency_ms_runs": [
+    192.7184504458779,
+    192.3560333251953,
+    192.95943089535362
+   ],
+   "peak_memory_source": "max-autotune-no-cudagraphs, 3 runs",
+   "peak_memory_mib_reported": 1500.2734375
+  },
+  "MambaIR|x4|720x1280": {
+   "method": "MambaIR",
+   "scale": 4,
+   "height": 720,
+   "width": 1280,
+   "execution": "bf16_compiled",
+   "fallback": "none",
+   "natten_mode": null,
+   "compile_mode": "max-autotune",
+   "mode_fallback": false,
+   "n": 3,
+   "latency_ms_median": 2935.3993883634867,
+   "latency_ms_runs": [
+    2937.6891575863488,
+    2935.3993883634867,
+    2934.8867572985196
+   ],
+   "peak_memory_source": "max-autotune-no-cudagraphs, 3 runs",
+   "peak_memory_mib_reported": 20763.7333984375
+  },
+  "PFT-light|x4|180x320": {
+   "method": "PFT-light",
+   "scale": 4,
+   "height": 180,
+   "width": 320,
+   "execution": "bf16_compiled",
+   "fallback": "smm_fp32",
+   "natten_mode": null,
+   "compile_mode": "max-autotune",
+   "mode_fallback": false,
+   "n": 3,
+   "latency_ms_median": 73.49821632786801,
+   "latency_ms_runs": [
+    73.4696582994963,
+    73.49821632786801,
+    75.48330286929482
+   ],
+   "peak_memory_source": "max-autotune-no-cudagraphs, 3 runs",
+   "peak_memory_mib_reported": 3744.95947265625
+  },
+  "PFT-light|x4|720x1280": {
+   "method": "PFT-light",
+   "scale": 4,
+   "height": 720,
+   "width": 1280,
+   "execution": "bf16_compiled",
+   "fallback": "smm_fp32",
+   "natten_mode": null,
+   "compile_mode": "max-autotune",
+   "mode_fallback": false,
+   "n": 3,
+   "latency_ms_median": 1200.7402857730262,
+   "latency_ms_runs": [
+    1201.280697471217,
+    1144.055818256579,
+    1200.7402857730262
+   ],
+   "peak_memory_source": "max-autotune-no-cudagraphs, 3 runs",
+   "peak_memory_mib_reported": 56689.8642578125
+  },
+  "PFT|x4|180x320": {
+   "method": "PFT",
+   "scale": 4,
+   "height": 180,
+   "width": 320,
+   "execution": "bf16_compiled",
+   "fallback": "smm_fp32",
+   "natten_mode": null,
+   "compile_mode": "max-autotune",
+   "mode_fallback": false,
+   "n": 3,
+   "latency_ms_median": 239.84340707879318,
+   "latency_ms_runs": [
+    254.74393824527138,
+    239.84340707879318,
+    238.72484387849508
+   ],
+   "peak_memory_source": "max-autotune-no-cudagraphs, 3 runs",
+   "peak_memory_mib_reported": 5800.7705078125
+  },
+  "PFT|x4|720x1280": {
+   "method": "PFT",
+   "scale": 4,
+   "height": 720,
+   "width": 1280,
+   "execution": "bf16_compiled",
+   "fallback": "smm_fp32",
+   "natten_mode": null,
+   "compile_mode": "max-autotune",
+   "mode_fallback": false,
+   "n": 3,
+   "latency_ms_median": 4034.9309596011512,
+   "latency_ms_runs": [
+    4034.9309596011512,
+    4397.333162006579,
+    4030.8848170230262
+   ],
+   "peak_memory_source": "max-autotune-no-cudagraphs, 3 runs",
+   "peak_memory_mib_reported": 86670.74462890625
+  },
+  "SRFormer-light|x4|180x320": {
+   "method": "SRFormer-light",
+   "scale": 4,
+   "height": 180,
+   "width": 320,
+   "execution": "bf16_compiled",
+   "fallback": "none",
+   "natten_mode": null,
+   "compile_mode": "max-autotune",
+   "mode_fallback": false,
+   "n": 3,
+   "latency_ms_median": 6.8011755441364485,
+   "latency_ms_runs": [
+    6.797948636506733,
+    6.8011755441364485,
+    6.804623152080335
+   ],
+   "peak_memory_source": "max-autotune-no-cudagraphs, 3 runs",
+   "peak_memory_mib_reported": 188.630859375
+  },
+  "SRFormer-light|x4|720x1280": {
+   "method": "SRFormer-light",
+   "scale": 4,
+   "height": 720,
+   "width": 1280,
+   "execution": "bf16_compiled",
+   "fallback": "none",
+   "natten_mode": null,
+   "compile_mode": "max-autotune",
+   "mode_fallback": false,
+   "n": 3,
+   "latency_ms_median": 89.34096406635486,
+   "latency_ms_runs": [
+    89.27297050074527,
+    89.34504137541118,
+    89.34096406635486
+   ],
+   "peak_memory_source": "max-autotune-no-cudagraphs, 3 runs",
+   "peak_memory_mib_reported": 2510.1376953125
+  },
+  "SRFormer|x4|180x320": {
+   "method": "SRFormer",
+   "scale": 4,
+   "height": 180,
+   "width": 320,
+   "execution": "bf16_compiled",
+   "fallback": "none",
+   "natten_mode": null,
+   "compile_mode": "max-autotune",
+   "mode_fallback": false,
+   "n": 3,
+   "latency_ms_median": 36.80897662514135,
+   "latency_ms_runs": [
+    36.77940890663549,
+    36.818731809917246,
+    36.80897662514135
+   ],
+   "peak_memory_source": "max-autotune-no-cudagraphs, 3 runs",
+   "peak_memory_mib_reported": 485.26708984375
+  },
+  "SRFormer|x4|720x1280": {
+   "method": "SRFormer",
+   "scale": 4,
+   "height": 720,
+   "width": 1280,
+   "execution": "bf16_compiled",
+   "fallback": "none",
+   "natten_mode": null,
+   "compile_mode": "max-autotune",
+   "mode_fallback": false,
+   "n": 3,
+   "latency_ms_median": 541.3462588661596,
+   "latency_ms_runs": [
+    542.2012907329358,
+    541.3462588661596,
+    539.6714541786596
+   ],
+   "peak_memory_source": "max-autotune-no-cudagraphs, 3 runs",
+   "peak_memory_mib_reported": 5847.12060546875
+  },
+  "SwinIR-light|x4|180x320": {
+   "method": "SwinIR-light",
+   "scale": 4,
+   "height": 180,
+   "width": 320,
+   "execution": "bf16_compiled",
+   "fallback": "none",
+   "natten_mode": null,
+   "compile_mode": "max-autotune",
+   "mode_fallback": false,
+   "n": 3,
+   "latency_ms_median": 5.612240866610878,
+   "latency_ms_runs": [
+    5.6189625388697575,
+    5.612240866610878,
+    5.609205873388993
+   ],
+   "peak_memory_source": "max-autotune-no-cudagraphs, 3 runs",
+   "peak_memory_mib_reported": 177.4091796875
+  },
+  "SwinIR-light|x4|720x1280": {
+   "method": "SwinIR-light",
+   "scale": 4,
+   "height": 720,
+   "width": 1280,
+   "execution": "bf16_compiled",
+   "fallback": "none",
+   "natten_mode": null,
+   "compile_mode": "max-autotune",
+   "mode_fallback": false,
+   "n": 3,
+   "latency_ms_median": 77.56933714214124,
+   "latency_ms_runs": [
+    77.56933714214124,
+    77.4300268072831,
+    77.92523755525288
+   ],
+   "peak_memory_source": "max-autotune-no-cudagraphs, 3 runs",
+   "peak_memory_mib_reported": 2707.34375
+  },
+  "SwinIR|x4|180x320": {
+   "method": "SwinIR",
+   "scale": 4,
+   "height": 180,
+   "width": 320,
+   "execution": "bf16_compiled",
+   "fallback": "none",
+   "natten_mode": null,
+   "compile_mode": "max-autotune",
+   "mode_fallback": false,
+   "n": 3,
+   "latency_ms_median": 19.555178190532484,
+   "latency_ms_runs": [
+    19.563540308099043,
+    19.54705680044074,
+    19.555178190532484
+   ],
+   "peak_memory_source": "max-autotune-no-cudagraphs, 3 runs",
+   "peak_memory_mib_reported": 381.1748046875
+  },
+  "SwinIR|x4|720x1280": {
+   "method": "SwinIR",
+   "scale": 4,
+   "height": 720,
+   "width": 1280,
+   "execution": "bf16_compiled",
+   "fallback": "none",
+   "natten_mode": null,
+   "compile_mode": "max-autotune",
+   "mode_fallback": false,
+   "n": 3,
+   "latency_ms_median": 254.00791931152344,
+   "latency_ms_runs": [
+    255.3548086065995,
+    254.00791931152344,
+    253.69871922543174
+   ],
+   "peak_memory_source": "max-autotune-no-cudagraphs, 3 runs",
+   "peak_memory_mib_reported": 4765.24267578125
+  },
+  "UCAN|x4|180x320": {
+   "method": "UCAN",
+   "scale": 4,
+   "height": 180,
+   "width": 320,
+   "execution": "bf16_compiled",
+   "fallback": "none",
+   "natten_mode": null,
+   "compile_mode": "max-autotune",
+   "mode_fallback": false,
+   "n": 3,
+   "latency_ms_median": 28.31687947323448,
+   "latency_ms_runs": [
+    28.31687947323448,
+    26.861202741924085,
+    29.14619475916812
+   ],
+   "peak_memory_source": "max-autotune-no-cudagraphs, 3 runs",
+   "peak_memory_mib_reported": 1681.59912109375
+  },
+  "UCAN|x4|720x1280": {
+   "method": "UCAN",
+   "scale": 4,
+   "height": 720,
+   "width": 1280,
+   "execution": "bf16_compiled",
+   "fallback": "none",
+   "natten_mode": null,
+   "compile_mode": "max-autotune",
+   "mode_fallback": false,
+   "n": 3,
+   "latency_ms_median": 254.9343077007093,
+   "latency_ms_runs": [
+    255.42945058722245,
+    254.68908932334497,
+    254.9343077007093
+   ],
+   "peak_memory_source": "max-autotune-no-cudagraphs, 3 runs",
+   "peak_memory_mib_reported": 24307.28759765625
+  }
+ }
+}

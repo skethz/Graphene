@@ -1,4 +1,5 @@
-"""Graphene operation counts and fresh-process FP32 or BF16 runtime profiling."""
+"""Graphene operation counts and fresh-process FP32 eager or BF16 compiled runtime profiling (protocol of the paper;
+benchmarks/ measures every compared method)."""
 
 import argparse
 import json
@@ -55,7 +56,7 @@ def worker(args):
     else:
         model.fp32_io = True
         if args.compile:
-            model = torch.compile(model, backend="inductor", mode="default", dynamic=False)
+            model = torch.compile(model, backend="inductor", mode=args.compile_mode, dynamic=False)
         with torch.inference_mode(), torch.autocast("cuda", dtype=torch.bfloat16, enabled=args.precision == "bf16"):
             for _ in range(args.warmup):
                 y = model(x)
@@ -72,9 +73,12 @@ def worker(args):
             torch.cuda.synchronize()
             elapsed = [start.elapsed_time(end) for start, end in zip(starts, ends)]
             peak = torch.cuda.max_memory_allocated()
-            result = dict(latency_ms=statistics.mean(elapsed), peak_memory_mib=peak / 2**20,
+            # The first timed pass re-allocates the activation buffers after empty_cache(); it is not timed.
+            timed = elapsed[1:] if len(elapsed) > 1 else elapsed
+            result = dict(latency_ms=statistics.mean(timed), peak_memory_mib=peak / 2**20,
                           output_finite=bool(torch.isfinite(y).all()))
     result.update(model=config["name"], precision=args.precision, compiled=args.compile,
+                  compile_mode=args.compile_mode if args.compile else None,
                   python=sys.version.split()[0], torch=torch.__version__, cuda=torch.version.cuda,
                   cudnn=torch.backends.cudnn.version(), gpu=torch.cuda.get_device_name(),
                   input_shape=list(x.shape))
@@ -90,7 +94,11 @@ def main():
     parser.add_argument("--counts-only", action="store_true")
     parser.add_argument("--precision", choices=("fp32", "bf16"), default="fp32")
     parser.add_argument("--compile", action="store_true")
-    parser.add_argument("--runs", type=int, default=3)
+    parser.add_argument("--compile-mode", default="max-autotune",
+                        choices=("default", "reduce-overhead", "max-autotune", "max-autotune-no-cudagraphs"),
+                        help="Inductor mode; CUDA-graph modes hide their memory pool from the allocator statistics, so "
+                             "measure peak memory with max-autotune-no-cudagraphs")
+    parser.add_argument("--runs", type=int, default=7)
     parser.add_argument("--warmup", type=int, default=50)
     parser.add_argument("--iterations", type=int, default=200)
     parser.add_argument("--cpu-threads", type=int, default=8)
@@ -111,13 +119,14 @@ def main():
                             "--iterations", str(args.iterations), "--cpu-threads", str(args.cpu_threads),
                             "--precision", args.precision]
             if args.compile:
-                command.append("--compile")
+                command += ["--compile", "--compile-mode", args.compile_mode]
             subprocess.run(command, check=True)
             reports.append(json.loads(output.read_text()))
         summary = dict(latency_ms=statistics.median(r["latency_ms"] for r in reports),
                        peak_memory_mib=statistics.median(r["peak_memory_mib"] for r in reports),
                        runs=reports, warmup=args.warmup, iterations=args.iterations,
-                       precision=args.precision, compiled=args.compile)
+                       precision=args.precision, compiled=args.compile,
+                       compile_mode=args.compile_mode if args.compile else None)
         Path(args.output).write_text(json.dumps(summary, indent=2) + "\n")
         print(json.dumps({k: v for k, v in summary.items() if k != "runs"}), flush=True)
 

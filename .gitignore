@@ -14,3 +14,8 @@ runs/
 audit*/
 release_work/
 *.log
+
+# benchmark package (benchmarks/README.md)
+third_party/
+build/
+results/

@@ -1,0 +1,888 @@
+{
+ "table": "fp32-large",
+ "printed_in": "Table 16",
+ "environment": {
+  "gpu": "NVIDIA GH200",
+  "python": "3.12.3",
+  "torch": "2.9.1",
+  "cuda": "13.0",
+  "cudnn": "9.23"
+ },
+ "setting": {
+  "execution": "fp32_eager",
+  "scales": [
+   4
+  ],
+  "sizes": [
+   [
+    180,
+    320
+   ],
+   [
+    720,
+    1280
+   ]
+  ],
+  "warmup": 5,
+  "iterations": 20,
+  "repeats": 3
+ },
+ "fields": {
+  "latency_ms_median": "median over the runs of each run's mean latency (first timed pass excluded)",
+  "latency_ms_runs": "per-run mean latency",
+  "peak_memory_mib_reported": "reported peak allocated memory (see peak_memory_source)",
+  "mode_fallback": "true where no variant completes in the variant's own compilation mode"
+ },
+ "picks": {
+  "ART|x4|180x320": {
+   "method": "ART",
+   "scale": 4,
+   "height": 180,
+   "width": 320,
+   "execution": "fp32_eager",
+   "fallback": "none",
+   "natten_mode": null,
+   "compile_mode": null,
+   "mode_fallback": false,
+   "n": 3,
+   "latency_ms_median": 377.58774446186266,
+   "latency_ms_runs": [
+    377.58774446186266,
+    377.52568455746297,
+    377.93689125462583
+   ],
+   "peak_memory_mib_median": 10974.03369140625,
+   "peak_memory_source": "timing runs",
+   "peak_memory_mib_reported": 10974.03369140625
+  },
+  "ART|x4|720x1280": {
+   "method": "ART",
+   "scale": 4,
+   "status": "oom"
+  },
+  "ATD-light|x4|180x320": {
+   "method": "ATD-light",
+   "scale": 4,
+   "height": 180,
+   "width": 320,
+   "execution": "fp32_eager",
+   "fallback": "none",
+   "natten_mode": null,
+   "compile_mode": null,
+   "mode_fallback": false,
+   "n": 3,
+   "latency_ms_median": 58.492104379754316,
+   "latency_ms_runs": [
+    58.492104379754316,
+    58.8217060691432,
+    56.718913429661804
+   ],
+   "peak_memory_mib_median": 684.26025390625,
+   "peak_memory_source": "timing runs",
+   "peak_memory_mib_reported": 684.26025390625
+  },
+  "ATD-light|x4|720x1280": {
+   "method": "ATD-light",
+   "scale": 4,
+   "height": 720,
+   "width": 1280,
+   "execution": "fp32_eager",
+   "fallback": "none",
+   "natten_mode": null,
+   "compile_mode": null,
+   "mode_fallback": false,
+   "n": 3,
+   "latency_ms_median": 669.6111482319079,
+   "latency_ms_runs": [
+    671.0314138312089,
+    669.6111482319079,
+    667.2999524568256
+   ],
+   "peak_memory_mib_median": 9687.76708984375,
+   "peak_memory_source": "timing runs",
+   "peak_memory_mib_reported": 9687.76708984375
+  },
+  "ATD|x4|180x320": {
+   "method": "ATD",
+   "scale": 4,
+   "height": 180,
+   "width": 320,
+   "execution": "fp32_eager",
+   "fallback": "none",
+   "natten_mode": null,
+   "compile_mode": null,
+   "mode_fallback": false,
+   "n": 3,
+   "latency_ms_median": 260.37923712479443,
+   "latency_ms_runs": [
+    259.7522888183594,
+    260.37923712479443,
+    260.58508622018917
+   ],
+   "peak_memory_mib_median": 1699.29296875,
+   "peak_memory_source": "timing runs",
+   "peak_memory_mib_reported": 1699.29296875
+  },
+  "ATD|x4|720x1280": {
+   "method": "ATD",
+   "scale": 4,
+   "height": 720,
+   "width": 1280,
+   "execution": "fp32_eager",
+   "fallback": "none",
+   "natten_mode": null,
+   "compile_mode": null,
+   "mode_fallback": false,
+   "n": 3,
+   "latency_ms_median": 4030.13818359375,
+   "latency_ms_runs": [
+    4030.13818359375,
+    4030.1006887335525,
+    4032.736636513158
+   ],
+   "peak_memory_mib_median": 23792.1748046875,
+   "peak_memory_source": "timing runs",
+   "peak_memory_mib_reported": 23792.1748046875
+  },
+  "CAT-A|x4|180x320": {
+   "method": "CAT-A",
+   "scale": 4,
+   "height": 180,
+   "width": 320,
+   "execution": "fp32_eager",
+   "fallback": "none",
+   "natten_mode": null,
+   "compile_mode": null,
+   "mode_fallback": false,
+   "n": 3,
+   "latency_ms_median": 300.81057899876646,
+   "latency_ms_runs": [
+    290.8064302143298,
+    300.81057899876646,
+    302.01949591385693
+   ],
+   "peak_memory_mib_median": 2927.68115234375,
+   "peak_memory_source": "timing runs",
+   "peak_memory_mib_reported": 2927.68115234375
+  },
+  "CAT-A|x4|720x1280": {
+   "method": "CAT-A",
+   "scale": 4,
+   "status": "oom"
+  },
+  "Graphene-light|x4|180x320": {
+   "method": "Graphene-light",
+   "scale": 4,
+   "height": 180,
+   "width": 320,
+   "execution": "fp32_eager",
+   "fallback": "none",
+   "natten_mode": null,
+   "compile_mode": null,
+   "mode_fallback": false,
+   "n": 3,
+   "latency_ms_median": 27.394073385941354,
+   "latency_ms_runs": [
+    27.358036342420075,
+    27.394073385941354,
+    27.748505441766035
+   ],
+   "peak_memory_mib_median": 509.18408203125,
+   "peak_memory_source": "timing runs",
+   "peak_memory_mib_reported": 509.18408203125
+  },
+  "Graphene-light|x4|720x1280": {
+   "method": "Graphene-light",
+   "scale": 4,
+   "height": 720,
+   "width": 1280,
+   "execution": "fp32_eager",
+   "fallback": "none",
+   "natten_mode": null,
+   "compile_mode": null,
+   "mode_fallback": false,
+   "n": 3,
+   "latency_ms_median": 441.3457240054482,
+   "latency_ms_runs": [
+    441.23580450760693,
+    441.3457240054482,
+    441.3650673314145
+   ],
+   "peak_memory_mib_median": 7047.44091796875,
+   "peak_memory_source": "timing runs",
+   "peak_memory_mib_reported": 7047.44091796875
+  },
+  "Graphene|x4|180x320": {
+   "method": "Graphene",
+   "scale": 4,
+   "height": 180,
+   "width": 320,
+   "execution": "fp32_eager",
+   "fallback": "none",
+   "natten_mode": null,
+   "compile_mode": null,
+   "mode_fallback": false,
+   "n": 3,
+   "latency_ms_median": 229.52264243678042,
+   "latency_ms_runs": [
+    229.59126121119448,
+    229.52264243678042,
+    229.39581700375206
+   ],
+   "peak_memory_mib_median": 1921.8486328125,
+   "peak_memory_source": "timing runs",
+   "peak_memory_mib_reported": 1921.8486328125
+  },
+  "Graphene|x4|720x1280": {
+   "method": "Graphene",
+   "scale": 4,
+   "height": 720,
+   "width": 1280,
+   "execution": "fp32_eager",
+   "fallback": "none",
+   "natten_mode": null,
+   "compile_mode": null,
+   "mode_fallback": false,
+   "n": 3,
+   "latency_ms_median": 4029.117007606908,
+   "latency_ms_runs": [
+    4029.117007606908,
+    4028.3169459292762,
+    4029.5048956620067
+   ],
+   "peak_memory_mib_median": 27181.91455078125,
+   "peak_memory_source": "timing runs",
+   "peak_memory_mib_reported": 27181.91455078125
+  },
+  "HAT|x4|180x320": {
+   "method": "HAT",
+   "scale": 4,
+   "height": 180,
+   "width": 320,
+   "execution": "fp32_eager",
+   "fallback": "none",
+   "natten_mode": null,
+   "compile_mode": null,
+   "mode_fallback": false,
+   "n": 3,
+   "latency_ms_median": 187.4144078304893,
+   "latency_ms_runs": [
+    187.4144078304893,
+    187.5131072998047,
+    187.38228647332443
+   ],
+   "peak_memory_mib_median": 2464.64453125,
+   "peak_memory_source": "timing runs",
+   "peak_memory_mib_reported": 2464.64453125
+  },
+  "HAT|x4|720x1280": {
+   "method": "HAT",
+   "scale": 4,
+   "height": 720,
+   "width": 1280,
+   "execution": "fp32_eager",
+   "fallback": "none",
+   "natten_mode": null,
+   "compile_mode": null,
+   "mode_fallback": false,
+   "n": 3,
+   "latency_ms_median": 3240.1265676398025,
+   "latency_ms_runs": [
+    3240.1265676398025,
+    3238.9827045641446,
+    3240.1349840666117
+   ],
+   "peak_memory_mib_median": 35305.93994140625,
+   "peak_memory_source": "timing runs",
+   "peak_memory_mib_reported": 35305.93994140625
+  },
+  "IET-light|x4|180x320": {
+   "method": "IET-light",
+   "scale": 4,
+   "height": 180,
+   "width": 320,
+   "execution": "fp32_eager",
+   "fallback": "none",
+   "natten_mode": "fp32",
+   "compile_mode": null,
+   "mode_fallback": false,
+   "n": 3,
+   "latency_ms_median": 184.91327948319284,
+   "latency_ms_runs": [
+    184.95954413163034,
+    184.91327948319284,
+    184.8275291041324
+   ],
+   "peak_memory_mib_median": 3161.65478515625,
+   "peak_memory_source": "timing runs",
+   "peak_memory_mib_reported": 3161.65478515625
+  },
+  "IET-light|x4|720x1280": {
+   "method": "IET-light",
+   "scale": 4,
+   "height": 720,
+   "width": 1280,
+   "execution": "fp32_eager",
+   "fallback": "none",
+   "natten_mode": "fp32",
+   "compile_mode": null,
+   "mode_fallback": false,
+   "n": 3,
+   "latency_ms_median": 2907.9304584703946,
+   "latency_ms_runs": [
+    2908.6440301192433,
+    2907.9304584703946,
+    2907.7832930715463
+   ],
+   "peak_memory_mib_median": 47567.001953125,
+   "peak_memory_source": "timing runs",
+   "peak_memory_mib_reported": 47567.001953125
+  },
+  "IET|x4|180x320": {
+   "method": "IET",
+   "scale": 4,
+   "height": 180,
+   "width": 320,
+   "execution": "fp32_eager",
+   "fallback": "none",
+   "natten_mode": "fp32",
+   "compile_mode": null,
+   "mode_fallback": false,
+   "n": 3,
+   "latency_ms_median": 686.8797607421875,
+   "latency_ms_runs": [
+    686.7400287828947,
+    686.9059062756991,
+    686.8797607421875
+   ],
+   "peak_memory_mib_median": 6330.11962890625,
+   "peak_memory_source": "timing runs",
+   "peak_memory_mib_reported": 6330.11962890625
+  },
+  "IET|x4|720x1280": {
+   "method": "IET",
+   "scale": 4,
+   "height": 720,
+   "width": 1280,
+   "execution": "fp32_eager",
+   "fallback": "none",
+   "natten_mode": "fp32",
+   "compile_mode": null,
+   "mode_fallback": false,
+   "n": 3,
+   "latency_ms_median": 11710.5859375,
+   "latency_ms_runs": [
+    11710.559467516447,
+    11710.5859375,
+    11712.787366365132
+   ],
+   "peak_memory_mib_median": 95077.90234375,
+   "peak_memory_source": "timing runs",
+   "peak_memory_mib_reported": 95077.90234375
+  },
+  "IPG|x4|180x320": {
+   "method": "IPG",
+   "scale": 4,
+   "height": 180,
+   "width": 320,
+   "execution": "fp32_eager",
+   "fallback": "none",
+   "natten_mode": null,
+   "compile_mode": null,
+   "mode_fallback": false,
+   "n": 3,
+   "latency_ms_median": 485.7448152240954,
+   "latency_ms_runs": [
+    486.0327517860814,
+    485.7448152240954,
+    485.499556692023
+   ],
+   "peak_memory_mib_median": 5302.4130859375,
+   "peak_memory_source": "timing runs",
+   "peak_memory_mib_reported": 5302.4130859375
+  },
+  "IPG|x4|720x1280": {
+   "method": "IPG",
+   "scale": 4,
+   "height": 720,
+   "width": 1280,
+   "execution": "fp32_eager",
+   "fallback": "none",
+   "natten_mode": null,
+   "compile_mode": null,
+   "mode_fallback": false,
+   "n": 3,
+   "latency_ms_median": 8408.25154194079,
+   "latency_ms_runs": [
+    8407.157072368422,
+    8408.25154194079,
+    8409.118626644737
+   ],
+   "peak_memory_mib_median": 78714.263671875,
+   "peak_memory_source": "timing runs",
+   "peak_memory_mib_reported": 78714.263671875
+  },
+  "MambaIR-light|x4|180x320": {
+   "method": "MambaIR-light",
+   "scale": 4,
+   "height": 180,
+   "width": 320,
+   "execution": "fp32_eager",
+   "fallback": "none",
+   "natten_mode": null,
+   "compile_mode": null,
+   "mode_fallback": false,
+   "n": 3,
+   "latency_ms_median": 40.420257568359375,
+   "latency_ms_runs": [
+    40.55338668823242,
+    40.40439384861996,
+    40.420257568359375
+   ],
+   "peak_memory_mib_median": 498.64599609375,
+   "peak_memory_source": "timing runs",
+   "peak_memory_mib_reported": 498.64599609375
+  },
+  "MambaIR-light|x4|720x1280": {
+   "method": "MambaIR-light",
+   "scale": 4,
+   "height": 720,
+   "width": 1280,
+   "execution": "fp32_eager",
+   "fallback": "none",
+   "natten_mode": null,
+   "compile_mode": null,
+   "mode_fallback": false,
+   "n": 3,
+   "latency_ms_median": 634.527009662829,
+   "latency_ms_runs": [
+    634.3404701634457,
+    634.527009662829,
+    634.7453773900082
+   ],
+   "peak_memory_mib_median": 6923.71533203125,
+   "peak_memory_source": "timing runs",
+   "peak_memory_mib_reported": 6923.71533203125
+  },
+  "MambaIRv2-light|x4|180x320": {
+   "method": "MambaIRv2-light",
+   "scale": 4,
+   "height": 180,
+   "width": 320,
+   "execution": "fp32_eager",
+   "fallback": "none",
+   "natten_mode": null,
+   "compile_mode": null,
+   "mode_fallback": false,
+   "n": 3,
+   "latency_ms_median": 68.36781471653988,
+   "latency_ms_runs": [
+    68.8373939112613,
+    68.27982330322266,
+    68.36781471653988
+   ],
+   "peak_memory_mib_median": 785.23681640625,
+   "peak_memory_source": "timing runs",
+   "peak_memory_mib_reported": 785.23681640625
+  },
+  "MambaIRv2-light|x4|720x1280": {
+   "method": "MambaIRv2-light",
+   "scale": 4,
+   "height": 720,
+   "width": 1280,
+   "execution": "fp32_eager",
+   "fallback": "none",
+   "natten_mode": null,
+   "compile_mode": null,
+   "mode_fallback": false,
+   "n": 3,
+   "latency_ms_median": 873.9435938784951,
+   "latency_ms_runs": [
+    873.8637823807566,
+    873.9435938784951,
+    874.3676950555099
+   ],
+   "peak_memory_mib_median": 11185.80615234375,
+   "peak_memory_source": "timing runs",
+   "peak_memory_mib_reported": 11185.80615234375
+  },
+  "MambaIRv2|x4|180x320": {
+   "method": "MambaIRv2",
+   "scale": 4,
+   "height": 180,
+   "width": 320,
+   "execution": "fp32_eager",
+   "fallback": "none",
+   "natten_mode": null,
+   "compile_mode": null,
+   "mode_fallback": false,
+   "n": 3,
+   "latency_ms_median": 366.11899446186266,
+   "latency_ms_runs": [
+    365.96882549085115,
+    366.2237436394942,
+    366.11899446186266
+   ],
+   "peak_memory_mib_median": 1609.9951171875,
+   "peak_memory_source": "timing runs",
+   "peak_memory_mib_reported": 1609.9951171875
+  },
+  "MambaIRv2|x4|720x1280": {
+   "method": "MambaIRv2",
+   "scale": 4,
+   "height": 720,
+   "width": 1280,
+   "execution": "fp32_eager",
+   "fallback": "none",
+   "natten_mode": null,
+   "compile_mode": null,
+   "mode_fallback": false,
+   "n": 3,
+   "latency_ms_median": 6793.4280427631575,
+   "latency_ms_runs": [
+    6793.4280427631575,
+    6797.6721833881575,
+    6790.6825143914475
+   ],
+   "peak_memory_mib_median": 22405.220703125,
+   "peak_memory_source": "timing runs",
+   "peak_memory_mib_reported": 22405.220703125
+  },
+  "MambaIR|x4|180x320": {
+   "method": "MambaIR",
+   "scale": 4,
+   "height": 180,
+   "width": 320,
+   "execution": "fp32_eager",
+   "fallback": "none",
+   "natten_mode": null,
+   "compile_mode": null,
+   "mode_fallback": false,
+   "n": 3,
+   "latency_ms_median": 289.18453497635693,
+   "latency_ms_runs": [
+    288.927634791324,
+    289.18453497635693,
+    289.34043803967927
+   ],
+   "peak_memory_mib_median": 2149.57421875,
+   "peak_memory_source": "timing runs",
+   "peak_memory_mib_reported": 2149.57421875
+  },
+  "MambaIR|x4|720x1280": {
+   "method": "MambaIR",
+   "scale": 4,
+   "height": 720,
+   "width": 1280,
+   "execution": "fp32_eager",
+   "fallback": "none",
+   "natten_mode": null,
+   "compile_mode": null,
+   "mode_fallback": false,
+   "n": 3,
+   "latency_ms_median": 4836.233655427632,
+   "latency_ms_runs": [
+    4836.233655427632,
+    4836.256758840461,
+    4835.785773026316
+   ],
+   "peak_memory_mib_median": 30655.1435546875,
+   "peak_memory_source": "timing runs",
+   "peak_memory_mib_reported": 30655.1435546875
+  },
+  "PFT-light|x4|180x320": {
+   "method": "PFT-light",
+   "scale": 4,
+   "height": 180,
+   "width": 320,
+   "execution": "fp32_eager",
+   "fallback": "none",
+   "natten_mode": null,
+   "compile_mode": null,
+   "mode_fallback": false,
+   "n": 3,
+   "latency_ms_median": 617.0699944747122,
+   "latency_ms_runs": [
+    602.6140200966283,
+    617.8335282175165,
+    617.0699944747122
+   ],
+   "peak_memory_mib_median": 4226.2578125,
+   "peak_memory_source": "timing runs",
+   "peak_memory_mib_reported": 4226.2578125
+  },
+  "PFT-light|x4|720x1280": {
+   "method": "PFT-light",
+   "scale": 4,
+   "height": 720,
+   "width": 1280,
+   "execution": "fp32_eager",
+   "fallback": "none",
+   "natten_mode": null,
+   "compile_mode": null,
+   "mode_fallback": false,
+   "n": 3,
+   "latency_ms_median": 8265.57658305921,
+   "latency_ms_runs": [
+    8263.110865542763,
+    8265.57658305921,
+    8279.04638671875
+   ],
+   "peak_memory_mib_median": 64093.09423828125,
+   "peak_memory_source": "timing runs",
+   "peak_memory_mib_reported": 64093.09423828125
+  },
+  "PFT|x4|180x320": {
+   "method": "PFT",
+   "scale": 4,
+   "height": 180,
+   "width": 320,
+   "execution": "fp32_eager",
+   "fallback": "none",
+   "natten_mode": null,
+   "compile_mode": null,
+   "mode_fallback": false,
+   "n": 3,
+   "latency_ms_median": 1433.6523951480262,
+   "latency_ms_runs": [
+    1433.6523951480262,
+    1432.9626272101152,
+    1434.1997648540296
+   ],
+   "peak_memory_mib_median": 7338.9462890625,
+   "peak_memory_source": "timing runs",
+   "peak_memory_mib_reported": 7338.9462890625
+  },
+  "PFT|x4|720x1280": {
+   "method": "PFT",
+   "scale": 4,
+   "height": 720,
+   "width": 1280,
+   "execution": "fp32_eager",
+   "fallback": "none",
+   "natten_mode": null,
+   "compile_mode": null,
+   "mode_fallback": false,
+   "n": 3,
+   "latency_ms_median": 22466.706825657893,
+   "latency_ms_runs": [
+    22466.706825657893,
+    22471.853310032893,
+    22458.533717105263
+   ],
+   "peak_memory_mib_median": 110460.609375,
+   "peak_memory_source": "timing runs",
+   "peak_memory_mib_reported": 110460.609375
+  },
+  "SRFormer-light|x4|180x320": {
+   "method": "SRFormer-light",
+   "scale": 4,
+   "height": 180,
+   "width": 320,
+   "execution": "fp32_eager",
+   "fallback": "none",
+   "natten_mode": null,
+   "compile_mode": null,
+   "mode_fallback": false,
+   "n": 3,
+   "latency_ms_median": 75.46911179391961,
+   "latency_ms_runs": [
+    74.21661296643708,
+    76.58957511500309,
+    75.46911179391961
+   ],
+   "peak_memory_mib_median": 366.521484375,
+   "peak_memory_source": "timing runs",
+   "peak_memory_mib_reported": 366.521484375
+  },
+  "SRFormer-light|x4|720x1280": {
+   "method": "SRFormer-light",
+   "scale": 4,
+   "height": 720,
+   "width": 1280,
+   "execution": "fp32_eager",
+   "fallback": "none",
+   "natten_mode": null,
+   "compile_mode": null,
+   "mode_fallback": false,
+   "n": 3,
+   "latency_ms_median": 579.0382337068256,
+   "latency_ms_runs": [
+    579.0382337068256,
+    579.3037334241366,
+    578.9763055098684
+   ],
+   "peak_memory_mib_median": 4739.6845703125,
+   "peak_memory_source": "timing runs",
+   "peak_memory_mib_reported": 4739.6845703125
+  },
+  "SRFormer|x4|180x320": {
+   "method": "SRFormer",
+   "scale": 4,
+   "height": 180,
+   "width": 320,
+   "execution": "fp32_eager",
+   "fallback": "none",
+   "natten_mode": null,
+   "compile_mode": null,
+   "mode_fallback": false,
+   "n": 3,
+   "latency_ms_median": 169.99659166837992,
+   "latency_ms_runs": [
+    165.30693295127466,
+    173.78898058439555,
+    169.99659166837992
+   ],
+   "peak_memory_mib_median": 870.8232421875,
+   "peak_memory_source": "timing runs",
+   "peak_memory_mib_reported": 870.8232421875
+  },
+  "SRFormer|x4|720x1280": {
+   "method": "SRFormer",
+   "scale": 4,
+   "height": 720,
+   "width": 1280,
+   "execution": "fp32_eager",
+   "fallback": "none",
+   "natten_mode": null,
+   "compile_mode": null,
+   "mode_fallback": false,
+   "n": 3,
+   "latency_ms_median": 2590.9673365542762,
+   "latency_ms_runs": [
+    2585.2422260485196,
+    2590.9673365542762,
+    2592.2969520970396
+   ],
+   "peak_memory_mib_median": 10846.29248046875,
+   "peak_memory_source": "timing runs",
+   "peak_memory_mib_reported": 10846.29248046875
+  },
+  "SwinIR-light|x4|180x320": {
+   "method": "SwinIR-light",
+   "scale": 4,
+   "height": 180,
+   "width": 320,
+   "execution": "fp32_eager",
+   "fallback": "none",
+   "natten_mode": null,
+   "compile_mode": null,
+   "mode_fallback": false,
+   "n": 3,
+   "latency_ms_median": 65.54014326396741,
+   "latency_ms_runs": [
+    65.5366893567537,
+    66.63144804302014,
+    65.54014326396741
+   ],
+   "peak_memory_mib_median": 386.498046875,
+   "peak_memory_source": "timing runs",
+   "peak_memory_mib_reported": 386.498046875
+  },
+  "SwinIR-light|x4|720x1280": {
+   "method": "SwinIR-light",
+   "scale": 4,
+   "height": 720,
+   "width": 1280,
+   "execution": "fp32_eager",
+   "fallback": "none",
+   "natten_mode": null,
+   "compile_mode": null,
+   "mode_fallback": false,
+   "n": 3,
+   "latency_ms_median": 532.1044857627467,
+   "latency_ms_runs": [
+    532.1044857627467,
+    531.3269139340049,
+    548.1780491879111
+   ],
+   "peak_memory_mib_median": 5264.1533203125,
+   "peak_memory_source": "timing runs",
+   "peak_memory_mib_reported": 5264.1533203125
+  },
+  "SwinIR|x4|180x320": {
+   "method": "SwinIR",
+   "scale": 4,
+   "height": 180,
+   "width": 320,
+   "execution": "fp32_eager",
+   "fallback": "none",
+   "natten_mode": null,
+   "compile_mode": null,
+   "mode_fallback": false,
+   "n": 3,
+   "latency_ms_median": 108.24129847476357,
+   "latency_ms_runs": [
+    108.98786926269531,
+    108.24129847476357,
+    106.12075484426398
+   ],
+   "peak_memory_mib_median": 702.404296875,
+   "peak_memory_source": "timing runs",
+   "peak_memory_mib_reported": 702.404296875
+  },
+  "SwinIR|x4|720x1280": {
+   "method": "SwinIR",
+   "scale": 4,
+   "height": 720,
+   "width": 1280,
+   "execution": "fp32_eager",
+   "fallback": "none",
+   "natten_mode": null,
+   "compile_mode": null,
+   "mode_fallback": false,
+   "n": 3,
+   "latency_ms_median": 1669.6527228104442,
+   "latency_ms_runs": [
+    1668.4444580078125,
+    1669.8781674033717,
+    1669.6527228104442
+   ],
+   "peak_memory_mib_median": 9531.1845703125,
+   "peak_memory_source": "timing runs",
+   "peak_memory_mib_reported": 9531.1845703125
+  },
+  "UCAN|x4|180x320": {
+   "method": "UCAN",
+   "scale": 4,
+   "height": 180,
+   "width": 320,
+   "execution": "fp32_eager",
+   "fallback": "none",
+   "natten_mode": null,
+   "compile_mode": null,
+   "mode_fallback": false,
+   "n": 3,
+   "latency_ms_median": 78.56398893657483,
+   "latency_ms_runs": [
+    77.90740645559211,
+    82.8002640573602,
+    78.56398893657483
+   ],
+   "peak_memory_mib_median": 1817.1865234375,
+   "peak_memory_source": "timing runs",
+   "peak_memory_mib_reported": 1817.1865234375
+  },
+  "UCAN|x4|720x1280": {
+   "method": "UCAN",
+   "scale": 4,
+   "height": 720,
+   "width": 1280,
+   "execution": "fp32_eager",
+   "fallback": "none",
+   "natten_mode": null,
+   "compile_mode": null,
+   "mode_fallback": false,
+   "n": 3,
+   "latency_ms_median": 788.6247526469983,
+   "latency_ms_runs": [
+    788.6247526469983,
+    789.0660850123355,
+    788.4450715717517
+   ],
+   "peak_memory_mib_median": 26409.935546875,
+   "peak_memory_source": "timing runs",
+   "peak_memory_mib_reported": 26409.935546875
+  }
+ }
+}

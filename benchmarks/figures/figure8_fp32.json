@@ -1,0 +1,160 @@
+{
+ "description": "Figure 8: x4, Urban100 PSNR (published values) versus FLOPs and FP32 eager latency at 64x64 LR input; latency and peak memory are the values of reported/fp32-64.json.",
+ "classical_x4": [
+  {
+   "method": "SwinIR",
+   "year": 2021,
+   "params_M": 11.9,
+   "flops_G": 107.7,
+   "published_psnr": 27.45,
+   "fp32_eager": {
+    "status": "complete",
+    "latency_ms": 25.38437391884962,
+    "peak_memory_mib": 139.64501953125,
+    "psnr": 27.45
+   }
+  },
+  {
+   "method": "CAT-A",
+   "year": 2022,
+   "params_M": 16.6,
+   "flops_G": 160.0,
+   "published_psnr": 27.89,
+   "fp32_eager": {
+    "status": "complete",
+    "latency_ms": 86.33176011895415,
+    "peak_memory_mib": 282.08056640625,
+    "psnr": 27.89
+   }
+  },
+  {
+   "method": "ART",
+   "year": 2023,
+   "params_M": 16.5,
+   "flops_G": 156.1,
+   "published_psnr": 27.77,
+   "fp32_eager": {
+    "status": "complete",
+    "latency_ms": 46.123360868674425,
+    "peak_memory_mib": 172.06005859375,
+    "psnr": 27.77
+   }
+  },
+  {
+   "method": "HAT",
+   "year": 2023,
+   "params_M": 20.8,
+   "flops_G": 208.4,
+   "published_psnr": 27.97,
+   "fp32_eager": {
+    "status": "complete",
+    "latency_ms": 46.60631862237825,
+    "peak_memory_mib": 274.2138671875,
+    "psnr": 27.97
+   }
+  },
+  {
+   "method": "SRFormer",
+   "year": 2023,
+   "params_M": 10.5,
+   "flops_G": 108.5,
+   "published_psnr": 27.68,
+   "fp32_eager": {
+    "status": "complete",
+    "latency_ms": 33.081921869785944,
+    "peak_memory_mib": 176.30810546875,
+    "psnr": 27.68
+   }
+  },
+  {
+   "method": "IPG",
+   "year": 2024,
+   "params_M": 17.0,
+   "flops_G": 268.5,
+   "published_psnr": 28.13,
+   "fp32_eager": {
+    "status": "complete",
+    "latency_ms": 61.402978983356725,
+    "peak_memory_mib": 522.857421875,
+    "psnr": 28.13
+   }
+  },
+  {
+   "method": "ATD",
+   "year": 2024,
+   "params_M": 22.0,
+   "flops_G": 263.5,
+   "published_psnr": 28.22,
+   "fp32_eager": {
+    "status": "complete",
+    "latency_ms": 64.16628844294716,
+    "peak_memory_mib": 222.7998046875,
+    "psnr": 28.22
+   }
+  },
+  {
+   "method": "MambaIR",
+   "year": 2024,
+   "params_M": 20.6,
+   "flops_G": 226.0,
+   "published_psnr": 27.68,
+   "fp32_eager": {
+    "status": "complete",
+    "latency_ms": 43.25681003973113,
+    "peak_memory_mib": 249.79150390625,
+    "psnr": 27.68
+   }
+  },
+  {
+   "method": "MambaIRv2",
+   "year": 2025,
+   "params_M": 23.1,
+   "flops_G": 228.0,
+   "published_psnr": 27.89,
+   "fp32_eager": {
+    "status": "complete",
+    "latency_ms": 84.71118857992354,
+    "peak_memory_mib": 224.56884765625,
+    "psnr": 27.89
+   }
+  },
+  {
+   "method": "PFT",
+   "year": 2025,
+   "params_M": 19.8,
+   "flops_G": 188.5,
+   "published_psnr": 28.2,
+   "fp32_eager": {
+    "status": "complete",
+    "latency_ms": 181.64847997924193,
+    "peak_memory_mib": 621.765625,
+    "psnr": 28.2
+   }
+  },
+  {
+   "method": "IET",
+   "year": 2026,
+   "params_M": 19.8,
+   "flops_G": 248.1,
+   "published_psnr": 28.43,
+   "fp32_eager": {
+    "status": "complete",
+    "latency_ms": 67.74238364061519,
+    "peak_memory_mib": 705.87939453125,
+    "psnr": 28.43
+   }
+  },
+  {
+   "method": "Graphene",
+   "year": null,
+   "params_M": 13.0,
+   "flops_G": 137.0,
+   "published_psnr": 28.67,
+   "fp32_eager": {
+    "status": "complete",
+    "latency_ms": 54.713435264089,
+    "peak_memory_mib": 278.07421875
+   }
+  }
+ ]
+}

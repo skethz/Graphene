@@ -1,0 +1,294 @@
+{
+ "description": "Figure 1: x4, Urban100 PSNR (published values) versus FLOPs and BF16 compiled latency at 64x64 LR input; latency and peak memory are the values of reported/bf16-64.json.",
+ "spec": {
+  "xlabel": "Latency (ms), BF16 compiled",
+  "legend_values": [
+   100,
+   200,
+   400
+  ],
+  "note": null,
+  "xscale": "log",
+  "xlim": [
+   2.2,
+   170
+  ],
+  "xticks": [
+   3,
+   5,
+   10,
+   20,
+   50,
+   100
+  ],
+  "better": [
+   [
+    0.4,
+    0.8
+   ],
+   [
+    0.53,
+    0.67
+   ]
+  ]
+ },
+ "classical_x4": [
+  {
+   "method": "SwinIR",
+   "year": 2021,
+   "params_M": 11.9,
+   "flops_G": 107.7,
+   "published_psnr": 27.45,
+   "variant": {
+    "latency_ms": 2.9272495358433557,
+    "peak_memory_mib": 86.30224609375,
+    "setting": "BF16 compiled max-autotune",
+    "status": "complete"
+   }
+  },
+  {
+   "method": "CAT-A",
+   "year": 2022,
+   "params_M": 16.6,
+   "flops_G": 160.0,
+   "published_psnr": 27.89,
+   "variant": {
+    "latency_ms": 6.791173630623362,
+    "peak_memory_mib": 216.3837890625,
+    "dagger": true,
+    "fallback": "cat_reshape",
+    "compile_mode": "max-autotune",
+    "natten_mode": null,
+    "setting": "BF16 compiled max-autotune, fallback cat_reshape",
+    "candidates": [
+     [
+      6.791173630623362,
+      216.3837890625,
+      "cat_reshape",
+      "max-autotune",
+      "none"
+     ],
+     [
+      88.28749540702782,
+      288.33447265625,
+      "cat_eager",
+      "max-autotune",
+      "none"
+     ]
+    ],
+    "status": "complete"
+   }
+  },
+  {
+   "method": "ART",
+   "year": 2023,
+   "params_M": 16.5,
+   "flops_G": 156.1,
+   "published_psnr": 27.77,
+   "variant": {
+    "latency_ms": 4.427411290269402,
+    "peak_memory_mib": 97.275390625,
+    "setting": "BF16 compiled max-autotune",
+    "status": "complete"
+   }
+  },
+  {
+   "method": "HAT",
+   "year": 2023,
+   "params_M": 20.8,
+   "flops_G": 208.4,
+   "published_psnr": 27.97,
+   "variant": {
+    "latency_ms": 7.161014669504597,
+    "peak_memory_mib": 163.3388671875,
+    "setting": "BF16 compiled max-autotune",
+    "status": "complete"
+   }
+  },
+  {
+   "method": "SRFormer",
+   "year": 2023,
+   "params_M": 10.5,
+   "flops_G": 108.5,
+   "published_psnr": 27.68,
+   "variant": {
+    "latency_ms": 4.5838437176229965,
+    "peak_memory_mib": 118.19921875,
+    "setting": "BF16 compiled max-autotune",
+    "status": "complete"
+   }
+  },
+  {
+   "method": "IPG",
+   "year": 2024,
+   "params_M": 17.0,
+   "flops_G": 268.5,
+   "published_psnr": 28.13,
+   "variant": {
+    "latency_ms": 11.308753694122162,
+    "peak_memory_mib": 394.82666015625,
+    "dagger": true,
+    "fallback": "ipg_cache",
+    "compile_mode": "max-autotune",
+    "natten_mode": null,
+    "setting": "BF16 compiled max-autotune, fallback ipg_cache",
+    "candidates": [
+     [
+      11.308753694122162,
+      394.82666015625,
+      "ipg_cache",
+      "max-autotune",
+      "none"
+     ],
+     [
+      12.857195902110345,
+      361.84423828125,
+      "none",
+      "max-autotune-no-cudagraphs",
+      "none"
+     ],
+     [
+      23.49434091577578,
+      394.82666015625,
+      "ipg_const",
+      "default",
+      "none"
+     ],
+     [
+      58.79050221275445,
+      526.34765625,
+      "ipg_eager",
+      "default",
+      "none"
+     ]
+    ],
+    "status": "complete"
+   }
+  },
+  {
+   "method": "ATD",
+   "year": 2024,
+   "params_M": 22.0,
+   "flops_G": 263.5,
+   "published_psnr": 28.22,
+   "variant": {
+    "latency_ms": 9.000437520856234,
+    "peak_memory_mib": 123.0146484375,
+    "setting": "BF16 compiled max-autotune",
+    "status": "complete"
+   }
+  },
+  {
+   "method": "MambaIR",
+   "year": 2024,
+   "params_M": 20.6,
+   "flops_G": 226.0,
+   "published_psnr": 27.68,
+   "variant": {
+    "latency_ms": 44.76345083342126,
+    "peak_memory_mib": 214.06884765625,
+    "setting": "BF16 compiled max-autotune",
+    "status": "complete"
+   }
+  },
+  {
+   "method": "MambaIRv2",
+   "year": 2025,
+   "params_M": 23.1,
+   "flops_G": 228.0,
+   "published_psnr": 27.89,
+   "variant": {
+    "latency_ms": 33.88056377430058,
+    "peak_memory_mib": 126.7490234375,
+    "setting": "BF16 compiled max-autotune",
+    "status": "complete"
+   }
+  },
+  {
+   "method": "PFT",
+   "year": 2025,
+   "params_M": 19.8,
+   "flops_G": 188.5,
+   "published_psnr": 28.2,
+   "variant": {
+    "latency_ms": 114.98788176110043,
+    "peak_memory_mib": 533.21923828125,
+    "dagger": true,
+    "fallback": "smm_fp32",
+    "compile_mode": "max-autotune",
+    "natten_mode": null,
+    "setting": "BF16 compiled max-autotune, fallback smm_fp32",
+    "candidates": [
+     [
+      114.98788176110043,
+      533.21923828125,
+      "smm_fp32",
+      "max-autotune",
+      "none"
+     ]
+    ],
+    "status": "complete"
+   }
+  },
+  {
+   "method": "IET",
+   "year": 2026,
+   "params_M": 19.8,
+   "flops_G": 248.1,
+   "published_psnr": 28.43,
+   "variant": {
+    "latency_ms": 51.680963583328015,
+    "peak_memory_mib": 530.3505859375,
+    "dagger": true,
+    "fallback": "smm_fp16",
+    "compile_mode": "max-autotune",
+    "natten_mode": "fp32",
+    "setting": "BF16 compiled max-autotune, fallback smm_fp16, NATTEN fp32",
+    "candidates": [
+     [
+      51.680963583328015,
+      530.3505859375,
+      "smm_fp16",
+      "max-autotune",
+      "fp32"
+     ],
+     [
+      52.421506009509216,
+      530.3505859375,
+      "smm_fp16",
+      "max-autotune",
+      "gemm_tf32_off"
+     ],
+     [
+      52.713744503768844,
+      531.5595703125,
+      "smm_fp32",
+      "max-autotune",
+      "gemm_tf32_off"
+     ],
+     [
+      53.54873227833504,
+      531.5595703125,
+      "smm_fp32",
+      "max-autotune",
+      "fp32"
+     ]
+    ],
+    "status": "complete"
+   }
+  },
+  {
+   "method": "Graphene",
+   "year": null,
+   "params_M": 13.0,
+   "flops_G": 137.0,
+   "published_psnr": 28.67,
+   "variant": {
+    "latency_ms": 8.338022764004654,
+    "peak_memory_mib": 192.63720703125,
+    "setting": "BF16 compiled max-autotune",
+    "status": "complete"
+   }
+  }
+ ]
+}
